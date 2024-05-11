@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://desusls6t8l2r"]
+
+[ext_resource type="Shader" path="res://Shaders/Spinner.gdshader" id="1_2s8yn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xo2lf"]
+shader = ExtResource("1_2s8yn")
+shader_parameter/THICCNESS = 0.08
+shader_parameter/RADIUS = 0.4
+shader_parameter/SPEED = 15.0
+
+[node name="Spinner" type="ColorRect"]
+material = SubResource("ShaderMaterial_xo2lf")
+offset_right = 276.0
+offset_bottom = 276.0

@@ -1,0 +1,472 @@
+[gd_scene load_steps=30 format=3 uid="uid://dfqfnpbjl24gf"]
+
+[ext_resource type="Script" path="res://Scenes/PokerPlayer/PokerPlayer.gd" id="1_6fwuy"]
+[ext_resource type="Texture2D" uid="uid://b5gg5inu66mht" path="res://Assets/Sprites/card-back.png" id="1_mwma7"]
+[ext_resource type="PackedScene" uid="uid://dbm6v3cx1hsor" path="res://Scenes/Card/Card.tscn" id="2_mlfij"]
+[ext_resource type="Shader" path="res://Nodes/BorderRadius/BorderRadius.gdshader" id="3_sg446"]
+[ext_resource type="Texture2D" uid="uid://dnwxjherwb37h" path="res://Assets/Sprites/Avatars/1.png" id="4_xkrik"]
+[ext_resource type="PackedScene" uid="uid://peke3pgx2hc8" path="res://Scenes/ChipStack/Chips.tscn" id="5_eg0o2"]
+[ext_resource type="Shader" path="res://Shaders/Teleport.gdshader" id="8_vw2xe"]
+[ext_resource type="Script" path="res://Nodes/BorderRadius/BorderRadius.gd" id="8_yls8u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ydvl7"]
+bg_color = Color(0.141176, 0.141176, 0.141176, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.219608, 0.219608, 0.219608, 1)
+corner_radius_top_left = 1024
+corner_radius_top_right = 1024
+corner_radius_bottom_right = 1024
+corner_radius_bottom_left = 1024
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vull7"]
+bg_color = Color(0.32549, 0.207843, 0.270588, 0.780392)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.682353, 0.439216, 0.603922, 0.701961)
+corner_radius_top_left = 1024
+corner_radius_top_right = 1024
+corner_radius_bottom_right = 1024
+corner_radius_bottom_left = 1024
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3pgn4"]
+bg_color = Color(0.160784, 0.2, 0.333333, 1)
+border_width_bottom = 5
+border_color = Color(0.101961, 0.133333, 0.231373, 1)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+
+[sub_resource type="Animation" id="Animation_eipmw"]
+resource_name = "Blur"
+length = 0.25
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.18, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1.15, 1.15), Vector2(0.65, 0.65), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_eivld"]
+resource_name = "Flash"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer/Content:theme_override_styles/panel:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.141176, 0.141176, 0.141176, 1), Color(0.278431, 0.278431, 0.278431, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qg511"]
+resource_name = "Hover"
+length = 0.25
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.18, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.35, 1.35), Vector2(1.15, 1.15)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qcj20"]
+_data = {
+"Blur": SubResource("Animation_eipmw"),
+"Flash": SubResource("Animation_eivld"),
+"Hover": SubResource("Animation_qg511")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lv76a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_14dhv"]
+bg_color = Color(0.4, 0.682353, 0.313726, 1)
+corner_radius_top_left = 1024
+corner_radius_top_right = 1024
+corner_radius_bottom_right = 1024
+corner_radius_bottom_left = 1024
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e85yj"]
+shader = ExtResource("3_sg446")
+shader_parameter/radius_top_left = 10.0
+shader_parameter/radius_top_right = 10.0
+shader_parameter/radius_bottom_left = 10.0
+shader_parameter/radius_bottom_right = 10.0
+shader_parameter/canvas_width = null
+shader_parameter/canvas_height = null
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qf5yo"]
+bg_color = Color(0.443137, 0.0745098, 0.329412, 1)
+border_width_bottom = 5
+border_color = Color(0.298039, 0.0352941, 0.219608, 1)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uogao"]
+shader = ExtResource("8_vw2xe")
+shader_parameter/progress = 0.0
+shader_parameter/noise_desnity = 5.1
+shader_parameter/beam_size = 0.079
+shader_parameter/color = Color(0.843137, 0.176471, 0.560784, 1)
+shader_parameter/is_screen_reading = false
+
+[sub_resource type="Animation" id="Animation_t8drv"]
+resource_name = "Current"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_ax0og"]
+resource_name = "NotCurrent"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h0nn8"]
+_data = {
+"Current": SubResource("Animation_t8drv"),
+"NotCurrent": SubResource("Animation_ax0og")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eue27"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0bsy8"]
+shader = ExtResource("3_sg446")
+shader_parameter/radius_top_left = 10.0
+shader_parameter/radius_top_right = 10.0
+shader_parameter/radius_bottom_left = 10.0
+shader_parameter/radius_bottom_right = 10.0
+shader_parameter/canvas_width = 32.0
+shader_parameter/canvas_height = 32.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rna3n"]
+content_margin_left = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ledkc"]
+bg_color = Color(1, 1, 1, 0.0980392)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ifiox"]
+content_margin_left = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_75dd7"]
+bg_color = Color(0.486275, 0, 0.337255, 1)
+corner_radius_top_left = 1024
+corner_radius_top_right = 1024
+corner_radius_bottom_right = 1024
+corner_radius_bottom_left = 1024
+anti_aliasing = false
+
+[node name="PokerPlayer" type="Control"]
+custom_minimum_size = Vector2(200, 2.08165e-12)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 25.0
+offset_top = 6.0
+offset_right = 225.0
+offset_bottom = 62.0
+scale = Vector2(1.15, 1.15)
+pivot_offset = Vector2(164, 40)
+script = ExtResource("1_6fwuy")
+current_style = SubResource("StyleBoxFlat_ydvl7")
+allin_style = SubResource("StyleBoxFlat_vull7")
+default_style = SubResource("StyleBoxFlat_3pgn4")
+metadata/_edit_vertical_guides_ = [272.0]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qcj20")
+}
+
+[node name="Bet" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 161.391
+offset_top = -44.3478
+offset_right = 161.391
+offset_bottom = -44.3478
+scale = Vector2(0.5, 0.5)
+
+[node name="BetChips" parent="Bet" instance=ExtResource("5_eg0o2")]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Content" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="ActionTimerBar" type="ProgressBar" parent="HBoxContainer/Content"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 17.0
+offset_top = -1.0
+offset_right = -16.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxEmpty_lv76a")
+theme_override_styles/fill = SubResource("StyleBoxFlat_14dhv")
+max_value = 5000.0
+step = 1.0
+show_percentage = false
+
+[node name="Cards" type="Control" parent="HBoxContainer/Content"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = -28.6957
+offset_bottom = -28.6957
+grow_horizontal = 2
+scale = Vector2(0.2, 0.2)
+
+[node name="VBoxContainer" type="HBoxContainer" parent="HBoxContainer/Content/Cards"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -204.5
+offset_right = 204.5
+offset_bottom = 283.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="Card1" type="Control" parent="HBoxContainer/Content/Cards/VBoxContainer"]
+custom_minimum_size = Vector2(187, 273)
+layout_mode = 2
+
+[node name="Back" type="TextureRect" parent="HBoxContainer/Content/Cards/VBoxContainer/Card1"]
+material = SubResource("ShaderMaterial_e85yj")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_mwma7")
+expand_mode = 1
+
+[node name="Card" parent="HBoxContainer/Content/Cards/VBoxContainer/Card1" instance=ExtResource("2_mlfij")]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Card2" type="Control" parent="HBoxContainer/Content/Cards/VBoxContainer"]
+custom_minimum_size = Vector2(217, 283)
+layout_mode = 2
+
+[node name="Back" type="TextureRect" parent="HBoxContainer/Content/Cards/VBoxContainer/Card2"]
+material = SubResource("ShaderMaterial_e85yj")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_mwma7")
+expand_mode = 1
+
+[node name="Card" parent="HBoxContainer/Content/Cards/VBoxContainer/Card2" instance=ExtResource("2_mlfij")]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CurrentBackground" type="Panel" parent="HBoxContainer/Content"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qf5yo")
+
+[node name="Box" type="PanelContainer" parent="HBoxContainer/Content"]
+material = SubResource("ShaderMaterial_uogao")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3pgn4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/Content/Box"]
+libraries = {
+"": SubResource("AnimationLibrary_h0nn8")
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Content/Box"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Avatar" type="PanelContainer" parent="HBoxContainer/Content/Box/HBoxContainer"]
+clip_children = 1
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_eue27")
+
+[node name="AvatarTextureRect" type="TextureRect" parent="HBoxContainer/Content/Box/HBoxContainer/Avatar"]
+z_index = 1
+material = SubResource("ShaderMaterial_0bsy8")
+custom_minimum_size = Vector2(52, 2.08165e-12)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("4_xkrik")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="BorderRadius" type="Control" parent="HBoxContainer/Content/Box/HBoxContainer/Avatar/AvatarTextureRect"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("8_yls8u")
+radius_top_left = 10000
+radius_top_right = 10000
+radius_bottom_left = 1000
+radius_bottom_right = 1000
+use_texture_size = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Content/Box/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+alignment = 1
+
+[node name="Name" type="HBoxContainer" parent="HBoxContainer/Content/Box/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="HBoxContainer/Content/Box/HBoxContainer/VBoxContainer/Name"]
+custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rna3n")
+text = "Meowing Cat"
+vertical_alignment = 2
+clip_text = true
+text_overrun_behavior = 4
+
+[node name="Separator" type="Panel" parent="HBoxContainer/Content/Box/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 1)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ledkc")
+
+[node name="Balance" type="HBoxContainer" parent="HBoxContainer/Content/Box/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BalanceLabel" type="Label" parent="HBoxContainer/Content/Box/HBoxContainer/VBoxContainer/Balance"]
+custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 0.65098)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ifiox")
+text = "0 XMR"
+clip_text = true
+
+[node name="Allin" type="Control" parent="HBoxContainer/Content"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.347834
+offset_top = 14.4348
+offset_right = -0.347839
+offset_bottom = 35.4347
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="HBoxContainer/Content/Allin"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -10.5
+offset_right = 36.0
+offset_bottom = 10.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_75dd7")
+text = "All-in"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

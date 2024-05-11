@@ -1,0 +1,1123 @@
+[gd_scene load_steps=5 format=3 uid="uid://cj1ktgyxnsxby"]
+
+[ext_resource type="Script" path="res://Scenes/PlayersCircle/PlayersCircle.gd" id="1_n1co6"]
+[ext_resource type="Texture2D" uid="uid://du8rjn311srgj" path="res://Assets/Sprites/desk.png" id="2_jgtb7"]
+[ext_resource type="PackedScene" uid="uid://dfqfnpbjl24gf" path="res://Scenes/PokerPlayer/PokerPlayer.tscn" id="3_ag6c0"]
+[ext_resource type="PackedScene" uid="uid://cad1et6rl45p2" path="res://Scenes/PlayersCircle/TakeSeatButton.tscn" id="4_ldc2w"]
+
+[node name="PlayersCircle" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_n1co6")
+
+[node name="Background" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_jgtb7")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Positions" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="2" type="Control" parent="Positions"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="PlayerPoint0" type="Control" parent="Positions/2"]
+layout_mode = 1
+anchor_left = 0.4075
+anchor_top = 0.615714
+anchor_right = 0.4075
+anchor_bottom = 0.615714
+offset_top = -2.24113e-05
+offset_bottom = -2.24113e-05
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="TakeSeatButton" parent="Positions/2/PlayerPoint0" instance=ExtResource("4_ldc2w")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 7.0
+offset_top = -6.00003
+offset_right = 298.0
+offset_bottom = 73.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="PlayerPoint1" type="Control" parent="Positions/2"]
+layout_mode = 1
+anchor_left = 0.393125
+anchor_top = 0.22
+anchor_right = 0.393125
+anchor_bottom = 0.22
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="TakeSeatButton" parent="Positions/2/PlayerPoint1" instance=ExtResource("4_ldc2w")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 29.9999
+offset_top = 6.0
+offset_right = 321.0
+offset_bottom = 85.0
+grow_horizontal = 1
+grow_vertical = 1
+position_index = 3
+
+[node name="3" type="Control" parent="Positions"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="PlayerPoint0" type="Control" parent="Positions/3"]
+layout_mode = 1
+anchor_left = 0.4075
+anchor_top = 0.615714
+anchor_right = 0.4075
+anchor_bottom = 0.615714
+offset_top = -2.24113e-05
+offset_bottom = -2.24113e-05
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="TakeSeatButton" parent="Positions/3/PlayerPoint0" instance=ExtResource("4_ldc2w")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 11.0
+offset_top = -6.00003
+offset_right = 302.0
+offset_bottom = 73.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="PlayerPoint1" type="Control" parent="Positions/3"]
+layout_mode = 1
+anchor_left = 0.02375
+anchor_top = 0.407857
+anchor_right = 0.02375
+anchor_bottom = 0.407857
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="TakeSeatButton" parent="Positions/3/PlayerPoint1" instance=ExtResource("4_ldc2w")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 19.0
+offset_top = -2.99996
+offset_right = 310.0
+offset_bottom = 76.0
+grow_horizontal = 1
+grow_vertical = 1
+position_index = 1
+
+[node name="PlayerPoint2" type="Control" parent="Positions/3"]
+layout_mode = 1
+anchor_left = 0.779375
+anchor_top = 0.412857
+anchor_right = 0.779375
+anchor_bottom = 0.412857
+offset_top = -1.33514e-05
+offset_bottom = -1.33514e-05
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="TakeSeatButton" parent="Positions/3/PlayerPoint2" instance=ExtResource("4_ldc2w")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 49.0
+offset_top = -2.00003
+offset_right = 340.0
+offset_bottom = 77.0
+grow_horizontal = 1
+grow_vertical = 1
+position_index = 2
+
+[node name="4" type="Control" parent="Positions"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="PlayerPoint0" type="Control" parent="Positions/4"]
+layout_mode = 1
+anchor_left = 0.4075
+anchor_top = 0.615714
+anchor_right = 0.4075
+anchor_bottom = 0.615714
+offset_top = -2.24113e-05
+offset_bottom = -2.24113e-05
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="TakeSeatButton" parent="Positions/4/PlayerPoint0" instance=ExtResource("4_ldc2w")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 4.0
+offset_top = -6.00003
+offset_right = 295.0
+offset_bottom = 73.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="PlayerPoint1" type="Control" parent="Positions/4"]
+layout_mode = 1
+anchor_left = 0.02375
+anchor_top = 0.408571
+anchor_right = 0.02375
+anchor_bottom = 0.408571
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="TakeSeatButton" parent="Positions/4/PlayerPoint1" instance=ExtResource("4_ldc2w")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 6.0
+offset_top = -0.999961
+offset_right = 297.0
+offset_bottom = 78.0
+grow_horizontal = 1
+grow_vertical = 1
+position_index = 1
+
+[node name="PlayerPoint2" type="Control" parent="Positions/4"]
+layout_mode = 1
+anchor_left = 0.39125
+anchor_top = 0.227143
+anchor_right = 0.39125
+anchor_bottom = 0.227143
+offset_top = -1.33514e-05
+offset_bottom = -1.33514e-05
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="TakeSeatButton" parent="Positions/4/PlayerPoint2" instance=ExtResource("4_ldc2w")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 30.0
+offset_top = 3.00003
+offset_right = 321.0
+offset_bottom = 82.0001
+grow_horizontal = 1
+grow_vertical = 1
+position_index = 2
+
+[node name="PlayerPoint3" type="Control" parent="Positions/4"]
+layout_mode = 1
+anchor_left = 0.775625
+anchor_top = 0.407857
+anchor_right = 0.775625
+anchor_bottom = 0.407857
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="TakeSeatButton" parent="Positions/4/PlayerPoint3" instance=ExtResource("4_ldc2w")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 18.0
+offset_right = 309.0
+grow_horizontal = 1
+grow_vertical = 1
+position_index = 3
+
+[node name="5" type="Control" parent="Positions"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="PlayerPoint0" type="Control" parent="Positions/5"]
+layout_mode = 1
+anchor_left = 0.4075
+anchor_top = 0.615714
+anchor_right = 0.4075
+anchor_bottom = 0.615714
+offset_top = -2.24113e-05
+offset_bottom = -2.24113e-05
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="TakeSeatButton" parent="Positions/5/PlayerPoint0" instance=ExtResource("4_ldc2w")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 8.0
+offset_top = -1.00003
+offset_right = 299.0
+offset_bottom = 78.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="PlayerPoint1" type="Control" parent="Positions/5"]
+layout_mode = 1
+anchor_left = 0.0075
+anchor_top = 0.46
+anchor_right = 0.0075
+anchor_bottom = 0.46
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="TakeSeatButton" parent="Positions/5/PlayerPoint1" instance=ExtResource("4_ldc2w")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 38.0
+offset_top = -10.9999
+offset_right = 329.0
+offset_bottom = 68.0001
+grow_horizontal = 1
+grow_vertical = 1
+position_index = 1
+
+[node name="PlayerPoint2" type="Control" parent="Positions/5"]
+layout_mode = 1
+anchor_left = 0.108125
+anchor_top = 0.269286
+anchor_right = 0.108125
+anchor_bottom = 0.269286
+offset_top = -1.33514e-05
+offset_bottom = -1.33514e-05
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="TakeSeatButton" parent="Positions/5/PlayerPoint2" instance=ExtResource("4_ldc2w")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 50.0
+offset_top = 5.99997
+offset_right = 341.0
+offset_bottom = 85.0
+grow_horizontal = 1
+grow_vertical = 1
+position_index = 2
+
+[node name="PlayerPoint3" type="Control" parent="Positions/5"]
+layout_mode = 1
+anchor_left = 0.671875
+anchor_top = 0.269286
+anchor_right = 0.671875
+anchor_bottom = 0.269286
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="TakeSeatButton" parent="Positions/5/PlayerPoint3" instance=ExtResource("4_ldc2w")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 29.9999
+offset_top = 6.0
+offset_right = 321.0
+offset_bottom = 85.0
+grow_horizontal = 1
+grow_vertical = 1
+position_index = 3
+
+[node name="PlayerPoint4" type="Control" parent="Positions/5"]
+layout_mode = 1
+anchor_left = 0.77875
+anchor_top = 0.457857
+anchor_right = 0.77875
+anchor_bottom = 0.457857
+offset_left = -3.31402e-05
+offset_top = -1.33514e-05
+offset_right = -3.31402e-05
+offset_bottom = -1.33514e-05
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="TakeSeatButton" parent="Positions/5/PlayerPoint4" instance=ExtResource("4_ldc2w")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 8.0
+offset_top = 7.0
+offset_right = 299.0
+offset_bottom = 86.0
+grow_horizontal = 1
+grow_vertical = 1
+position_index = 4
+
+[node name="6" type="Control" parent="Positions"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="PlayerPoint0" type="Control" parent="Positions/6"]
+layout_mode = 1
+anchor_left = 0.488306
+anchor_top = 0.675714
+anchor_right = 0.488306
+anchor_bottom = 0.675714
+offset_left = -67.6448
+offset_top = -3.71933e-05
+offset_right = -67.6448
+offset_bottom = -3.71933e-05
+pivot_offset = Vector2(81.4448, 17.75)
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Player" parent="Positions/6/PlayerPoint0" instance=ExtResource("3_ag6c0")]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 200.0
+offset_bottom = 56.0
+
+[node name="ChipsPosition" type="Control" parent="Positions/6/PlayerPoint0/Player"]
+anchors_preset = 0
+offset_left = 19.6526
+offset_top = -37.3913
+offset_right = 19.6526
+offset_bottom = -37.3913
+scale = Vector2(-1, 1)
+
+[node name="TakeSeatButton" parent="Positions/6/PlayerPoint0" instance=ExtResource("4_ldc2w")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 6.44479
+offset_top = -1.24996
+offset_right = 151.445
+offset_bottom = 43.75
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="PlayerPoint1" type="Control" parent="Positions/6"]
+layout_mode = 1
+anchor_left = 0.0392758
+anchor_top = 0.556611
+anchor_right = 0.0392758
+anchor_bottom = 0.556611
+offset_top = 1.50204e-05
+offset_bottom = 1.50204e-05
+pivot_offset = Vector2(29.5794, 25.3723)
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Player" parent="Positions/6/PlayerPoint1" instance=ExtResource("3_ag6c0")]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 175.0
+offset_bottom = 56.0
+
+[node name="ChipsPosition" type="Control" parent="Positions/6/PlayerPoint1/Player"]
+anchors_preset = 0
+offset_left = 171.175
+offset_top = -28.0772
+offset_right = 171.175
+offset_bottom = -28.0772
+
+[node name="TakeSeatButton" parent="Positions/6/PlayerPoint1" instance=ExtResource("4_ldc2w")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -3.42064
+offset_top = 0.372299
+offset_right = 141.58
+offset_bottom = 45.3723
+grow_horizontal = 1
+grow_vertical = 1
+position_index = 1
+
+[node name="PlayerPoint2" type="Control" parent="Positions/6"]
+layout_mode = 1
+anchor_left = 0.057
+anchor_top = 0.338
+anchor_right = 0.057
+anchor_bottom = 0.338
+offset_left = -14.4889
+offset_top = -28.35
+offset_right = -14.4889
+offset_bottom = -28.35
+pivot_offset = Vector2(20.8889, 25.75)
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Player" parent="Positions/6/PlayerPoint2" instance=ExtResource("3_ag6c0")]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 175.0
+offset_bottom = 56.0
+
+[node name="ChipsPosition" type="Control" parent="Positions/6/PlayerPoint2/Player"]
+anchors_preset = 0
+offset_left = 171.478
+offset_top = 53.0435
+offset_right = 171.478
+offset_bottom = 53.0435
+
+[node name="TakeSeatButton" parent="Positions/6/PlayerPoint2" instance=ExtResource("4_ldc2w")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -21.1111
+offset_top = 0.750005
+offset_right = 123.889
+offset_bottom = 45.75
+grow_horizontal = 1
+grow_vertical = 1
+position_index = 2
+
+[node name="PlayerPoint3" type="Control" parent="Positions/6"]
+layout_mode = 1
+anchor_left = 0.491111
+anchor_top = 0.178071
+anchor_right = 0.491111
+anchor_bottom = 0.178071
+offset_left = -52.8888
+offset_top = -20.65
+offset_right = -52.8888
+offset_bottom = -20.65
+pivot_offset = Vector2(34.8888, 10.75)
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Player" parent="Positions/6/PlayerPoint3" instance=ExtResource("3_ag6c0")]
+offset_left = -24.6
+offset_top = -6.0
+offset_right = 150.4
+offset_bottom = 50.0
+
+[node name="ChipsPosition" type="Control" parent="Positions/6/PlayerPoint3/Player"]
+anchors_preset = 0
+offset_left = 1.91306
+offset_top = 95.6522
+offset_right = 1.91306
+offset_bottom = 95.6522
+
+[node name="TakeSeatButton" parent="Positions/6/PlayerPoint3" instance=ExtResource("4_ldc2w")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -17.0
+offset_right = 128.0
+offset_bottom = 45.0
+grow_horizontal = 1
+grow_vertical = 1
+position_index = 3
+
+[node name="PlayerPoint4" type="Control" parent="Positions/6"]
+layout_mode = 1
+anchor_left = 0.981
+anchor_top = 0.374
+anchor_right = 0.981
+anchor_bottom = 0.374
+offset_left = -167.911
+offset_top = -49.175
+offset_right = -167.911
+offset_bottom = -49.175
+pivot_offset = Vector2(136.111, 19.375)
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Player" parent="Positions/6/PlayerPoint4" instance=ExtResource("3_ag6c0")]
+offset_left = -24.6
+offset_top = -6.0
+offset_right = 150.4
+offset_bottom = 50.0
+siding = 1
+
+[node name="ChipsPosition" type="Control" parent="Positions/6/PlayerPoint4/Player"]
+anchors_preset = 0
+offset_left = -3.94141
+offset_top = 53.3336
+offset_right = -3.94141
+offset_bottom = 53.3336
+scale = Vector2(-1, 1)
+
+[node name="TakeSeatButton" parent="Positions/6/PlayerPoint4" instance=ExtResource("4_ldc2w")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 20.1112
+offset_top = -7.625
+offset_right = 165.111
+offset_bottom = 37.375
+grow_horizontal = 1
+grow_vertical = 1
+position_index = 4
+
+[node name="PlayerPoint5" type="Control" parent="Positions/6"]
+layout_mode = 1
+anchor_left = 0.922
+anchor_top = 0.619
+anchor_right = 0.922
+anchor_bottom = 0.619
+offset_left = -143.822
+offset_top = -43.925
+offset_right = -143.822
+offset_bottom = -43.925
+pivot_offset = Vector2(151.222, 17.625)
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Player" parent="Positions/6/PlayerPoint5" instance=ExtResource("3_ag6c0")]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 175.0
+offset_bottom = 56.0
+siding = 1
+
+[node name="ChipsPosition" type="Control" parent="Positions/6/PlayerPoint5/Player"]
+anchors_preset = 0
+offset_left = -0.3479
+offset_top = -21.7391
+offset_right = -0.3479
+offset_bottom = -21.7391
+scale = Vector2(-1, 1)
+
+[node name="TakeSeatButton" parent="Positions/6/PlayerPoint5" instance=ExtResource("4_ldc2w")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 53.2216
+offset_top = 1.62503
+offset_right = 198.221
+offset_bottom = 46.625
+grow_horizontal = 1
+grow_vertical = 1
+position_index = 5
+
+[node name="7" type="Control" parent="Positions"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="PlayerPoint0" type="Control" parent="Positions/7"]
+layout_mode = 1
+anchor_left = 0.4075
+anchor_top = 0.615714
+anchor_right = 0.4075
+anchor_bottom = 0.615714
+offset_top = -2.24113e-05
+offset_bottom = -2.24113e-05
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="TakeSeatButton" parent="Positions/7/PlayerPoint0" instance=ExtResource("4_ldc2w")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 11.0
+offset_top = 49.0
+offset_right = 302.0
+offset_bottom = 128.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="PlayerPoint1" type="Control" parent="Positions/7"]
+layout_mode = 1
+anchor_left = 0.036875
+anchor_top = 0.537857
+anchor_right = 0.036875
+anchor_bottom = 0.537857
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="TakeSeatButton" parent="Positions/7/PlayerPoint1" instance=ExtResource("4_ldc2w")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 38.0
+offset_top = -10.9999
+offset_right = 329.0
+offset_bottom = 68.0001
+grow_horizontal = 1
+grow_vertical = 1
+position_index = 1
+
+[node name="PlayerPoint2" type="Control" parent="Positions/7"]
+layout_mode = 1
+anchor_left = 0.03625
+anchor_top = 0.313571
+anchor_right = 0.03625
+anchor_bottom = 0.313571
+offset_top = -1.33514e-05
+offset_bottom = -1.33514e-05
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="TakeSeatButton" parent="Positions/7/PlayerPoint2" instance=ExtResource("4_ldc2w")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 50.0
+offset_top = 5.99997
+offset_right = 341.0
+offset_bottom = 85.0
+grow_horizontal = 1
+grow_vertical = 1
+position_index = 2
+
+[node name="PlayerPoint3" type="Control" parent="Positions/7"]
+layout_mode = 1
+anchor_left = 0.393125
+anchor_top = 0.22
+anchor_right = 0.393125
+anchor_bottom = 0.22
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="TakeSeatButton" parent="Positions/7/PlayerPoint3" instance=ExtResource("4_ldc2w")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 29.9999
+offset_top = 6.0
+offset_right = 321.0
+offset_bottom = 85.0
+grow_horizontal = 1
+grow_vertical = 1
+position_index = 3
+
+[node name="PlayerPoint4" type="Control" parent="Positions/7"]
+layout_mode = 1
+anchor_left = 0.748125
+anchor_top = 0.308571
+anchor_right = 0.748125
+anchor_bottom = 0.308571
+offset_left = -3.31402e-05
+offset_top = -1.33514e-05
+offset_right = -3.31402e-05
+offset_bottom = -1.33514e-05
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="TakeSeatButton" parent="Positions/7/PlayerPoint4" instance=ExtResource("4_ldc2w")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 8.0
+offset_top = 7.0
+offset_right = 299.0
+offset_bottom = 86.0
+grow_horizontal = 1
+grow_vertical = 1
+position_index = 4
+
+[node name="PlayerPoint5" type="Control" parent="Positions/7"]
+layout_mode = 1
+anchor_left = 0.74875
+anchor_top = 0.534286
+anchor_right = 0.74875
+anchor_bottom = 0.534286
+offset_left = 3.00407e-05
+offset_right = 3.00407e-05
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="TakeSeatButton" parent="Positions/7/PlayerPoint5" instance=ExtResource("4_ldc2w")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 5.0
+offset_top = -7.0
+offset_right = 296.0
+offset_bottom = 72.0
+grow_horizontal = 1
+grow_vertical = 1
+position_index = 5
+
+[node name="8" type="Control" parent="Positions"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="PlayerPoint0" type="Control" parent="Positions/8"]
+layout_mode = 1
+anchor_left = 0.4075
+anchor_top = 0.615714
+anchor_right = 0.4075
+anchor_bottom = 0.615714
+offset_top = -2.24113e-05
+offset_bottom = -2.24113e-05
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="TakeSeatButton" parent="Positions/8/PlayerPoint0" instance=ExtResource("4_ldc2w")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 11.0
+offset_top = 49.0
+offset_right = 302.0
+offset_bottom = 128.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="PlayerPoint1" type="Control" parent="Positions/8"]
+layout_mode = 1
+anchor_left = 0.036875
+anchor_top = 0.537857
+anchor_right = 0.036875
+anchor_bottom = 0.537857
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="TakeSeatButton" parent="Positions/8/PlayerPoint1" instance=ExtResource("4_ldc2w")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 38.0
+offset_top = -10.9999
+offset_right = 329.0
+offset_bottom = 68.0001
+grow_horizontal = 1
+grow_vertical = 1
+position_index = 1
+
+[node name="PlayerPoint2" type="Control" parent="Positions/8"]
+layout_mode = 1
+anchor_left = 0.03625
+anchor_top = 0.313571
+anchor_right = 0.03625
+anchor_bottom = 0.313571
+offset_top = -1.33514e-05
+offset_bottom = -1.33514e-05
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="TakeSeatButton" parent="Positions/8/PlayerPoint2" instance=ExtResource("4_ldc2w")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 50.0
+offset_top = 5.99997
+offset_right = 341.0
+offset_bottom = 85.0
+grow_horizontal = 1
+grow_vertical = 1
+position_index = 2
+
+[node name="PlayerPoint3" type="Control" parent="Positions/8"]
+layout_mode = 1
+anchor_left = 0.393125
+anchor_top = 0.22
+anchor_right = 0.393125
+anchor_bottom = 0.22
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="TakeSeatButton" parent="Positions/8/PlayerPoint3" instance=ExtResource("4_ldc2w")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 29.9999
+offset_top = 6.0
+offset_right = 321.0
+offset_bottom = 85.0
+grow_horizontal = 1
+grow_vertical = 1
+position_index = 3
+
+[node name="PlayerPoint4" type="Control" parent="Positions/8"]
+layout_mode = 1
+anchor_left = 0.748125
+anchor_top = 0.308571
+anchor_right = 0.748125
+anchor_bottom = 0.308571
+offset_left = -3.31402e-05
+offset_top = -1.33514e-05
+offset_right = -3.31402e-05
+offset_bottom = -1.33514e-05
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="TakeSeatButton" parent="Positions/8/PlayerPoint4" instance=ExtResource("4_ldc2w")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 8.0
+offset_top = 7.0
+offset_right = 299.0
+offset_bottom = 86.0
+grow_horizontal = 1
+grow_vertical = 1
+position_index = 4
+
+[node name="PlayerPoint5" type="Control" parent="Positions/8"]
+layout_mode = 1
+anchor_left = 0.74875
+anchor_top = 0.534286
+anchor_right = 0.74875
+anchor_bottom = 0.534286
+offset_left = 3.00407e-05
+offset_right = 3.00407e-05
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="TakeSeatButton" parent="Positions/8/PlayerPoint5" instance=ExtResource("4_ldc2w")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 5.0
+offset_top = -7.0
+offset_right = 296.0
+offset_bottom = 72.0
+grow_horizontal = 1
+grow_vertical = 1
+position_index = 5
+
+[node name="9" type="Control" parent="Positions"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="PlayerPoint0" type="Control" parent="Positions/9"]
+layout_mode = 1
+anchor_left = 0.4075
+anchor_top = 0.615714
+anchor_right = 0.4075
+anchor_bottom = 0.615714
+offset_top = -2.24113e-05
+offset_bottom = -2.24113e-05
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="TakeSeatButton" parent="Positions/9/PlayerPoint0" instance=ExtResource("4_ldc2w")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 11.0
+offset_top = 49.0
+offset_right = 302.0
+offset_bottom = 128.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="PlayerPoint1" type="Control" parent="Positions/9"]
+layout_mode = 1
+anchor_left = 0.036875
+anchor_top = 0.537857
+anchor_right = 0.036875
+anchor_bottom = 0.537857
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="TakeSeatButton" parent="Positions/9/PlayerPoint1" instance=ExtResource("4_ldc2w")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 38.0
+offset_top = -10.9999
+offset_right = 329.0
+offset_bottom = 68.0001
+grow_horizontal = 1
+grow_vertical = 1
+position_index = 1
+
+[node name="PlayerPoint2" type="Control" parent="Positions/9"]
+layout_mode = 1
+anchor_left = 0.03625
+anchor_top = 0.313571
+anchor_right = 0.03625
+anchor_bottom = 0.313571
+offset_top = -1.33514e-05
+offset_bottom = -1.33514e-05
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="TakeSeatButton" parent="Positions/9/PlayerPoint2" instance=ExtResource("4_ldc2w")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 50.0
+offset_top = 5.99997
+offset_right = 341.0
+offset_bottom = 85.0
+grow_horizontal = 1
+grow_vertical = 1
+position_index = 2
+
+[node name="PlayerPoint3" type="Control" parent="Positions/9"]
+layout_mode = 1
+anchor_left = 0.393125
+anchor_top = 0.22
+anchor_right = 0.393125
+anchor_bottom = 0.22
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="TakeSeatButton" parent="Positions/9/PlayerPoint3" instance=ExtResource("4_ldc2w")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 29.9999
+offset_top = 6.0
+offset_right = 321.0
+offset_bottom = 85.0
+grow_horizontal = 1
+grow_vertical = 1
+position_index = 3
+
+[node name="PlayerPoint4" type="Control" parent="Positions/9"]
+layout_mode = 1
+anchor_left = 0.748125
+anchor_top = 0.308571
+anchor_right = 0.748125
+anchor_bottom = 0.308571
+offset_left = -3.31402e-05
+offset_top = -1.33514e-05
+offset_right = -3.31402e-05
+offset_bottom = -1.33514e-05
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="TakeSeatButton" parent="Positions/9/PlayerPoint4" instance=ExtResource("4_ldc2w")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 8.0
+offset_top = 7.0
+offset_right = 299.0
+offset_bottom = 86.0
+grow_horizontal = 1
+grow_vertical = 1
+position_index = 4
+
+[node name="PlayerPoint5" type="Control" parent="Positions/9"]
+layout_mode = 1
+anchor_left = 0.74875
+anchor_top = 0.534286
+anchor_right = 0.74875
+anchor_bottom = 0.534286
+offset_left = 3.00407e-05
+offset_right = 3.00407e-05
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="TakeSeatButton" parent="Positions/9/PlayerPoint5" instance=ExtResource("4_ldc2w")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 5.0
+offset_top = -7.0
+offset_right = 296.0
+offset_bottom = 72.0
+grow_horizontal = 1
+grow_vertical = 1
+position_index = 5
+
+[connection signal="item_rect_changed" from="." to="." method="_on_item_rect_changed"]
+[connection signal="enter" from="Positions/6/PlayerPoint0/TakeSeatButton" to="." method="_on_TakeSeatButton_enter"]
+[connection signal="enter" from="Positions/6/PlayerPoint1/TakeSeatButton" to="." method="_on_TakeSeatButton_enter"]
+[connection signal="enter" from="Positions/6/PlayerPoint2/TakeSeatButton" to="." method="_on_TakeSeatButton_enter"]
+[connection signal="enter" from="Positions/6/PlayerPoint3/TakeSeatButton" to="." method="_on_TakeSeatButton_enter"]
+[connection signal="enter" from="Positions/6/PlayerPoint4/TakeSeatButton" to="." method="_on_TakeSeatButton_enter"]
+[connection signal="enter" from="Positions/6/PlayerPoint5/TakeSeatButton" to="." method="_on_TakeSeatButton_enter"]

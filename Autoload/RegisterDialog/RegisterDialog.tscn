@@ -1,0 +1,1055 @@
+[gd_scene load_steps=51 format=3 uid="uid://cgo0ianoaxvph"]
+
+[ext_resource type="Script" path="res://Autoload/RegisterDialog/RegisterDialog.gd" id="1_i7agj"]
+[ext_resource type="Shader" path="res://Shaders/Teleport.gdshader" id="2_eubmd"]
+[ext_resource type="Shader" path="res://Shaders/ScrollingBackground.gdshader" id="3_8xvgr"]
+[ext_resource type="Material" uid="uid://b4wv5lw4jqvwj" path="res://Materials/ScrollingBacground.tres" id="3_uvmme"]
+[ext_resource type="Texture2D" uid="uid://difpu4nof0f6d" path="res://Assets/Sprites/Icons/email.png" id="4_8ehst"]
+[ext_resource type="Texture2D" uid="uid://b2q06rg3abrxr" path="res://Assets/Sprites/poker-icons-bg.png" id="4_y1nnq"]
+[ext_resource type="Texture2D" uid="uid://d20h444wxko53" path="res://Assets/Sprites/Icons/close.png" id="5_7nd8e"]
+[ext_resource type="Texture2D" uid="uid://bbdhxlkmfbh18" path="res://Assets/Sprites/Icons/right.png" id="5_xx48y"]
+[ext_resource type="Texture2D" uid="uid://ceahlw8is6iar" path="res://Assets/Sprites/Icons/apple.png" id="8_iudqt"]
+[ext_resource type="Texture2D" uid="uid://da46m0adbqq6i" path="res://Assets/Sprites/Icons/google.png" id="9_roeer"]
+[ext_resource type="PackedScene" uid="uid://desusls6t8l2r" path="res://Nodes/Spinner/Spinner.tscn" id="11_2dnch"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6f0l6"]
+bg_color = Color(0, 0, 0, 0.196078)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+anti_aliasing = false
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_amey1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tsy64"]
+shader = ExtResource("2_eubmd")
+shader_parameter/progress = 0.0
+shader_parameter/noise_desnity = 30.0
+shader_parameter/beam_size = 0.041
+shader_parameter/color = Color(0, 0.458824, 0.811765, 1)
+shader_parameter/is_screen_reading = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_at1os"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r237v"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0, 0, 0, 0.105882)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_opdj3"]
+bg_color = Color(0.145098, 0.0901961, 0.415686, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0, 0, 0, 0.105882)
+anti_aliasing = false
+
+[sub_resource type="Shader" id="Shader_7lqvs"]
+code = "shader_type canvas_item;
+
+uniform float horizontal_speed = 0;
+uniform float vertical_speed = 0;
+
+uniform sampler2D overlay_texture;
+
+void fragment () {
+	COLOR = texture(TEXTURE, vec2(UV.x + TIME * horizontal_speed, UV.y + TIME * vertical_speed));
+	COLOR.a *= texture(overlay_texture, UV.yx).a;
+}"
+
+[sub_resource type="Gradient" id="Gradient_ruaxl"]
+offsets = PackedFloat32Array(0, 0.0417288)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_eb7cu"]
+gradient = SubResource("Gradient_ruaxl")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2vffh"]
+resource_local_to_scene = true
+shader = SubResource("Shader_7lqvs")
+shader_parameter/horizontal_speed = 0.1
+shader_parameter/vertical_speed = 0.1
+shader_parameter/overlay_texture = SubResource("GradientTexture2D_eb7cu")
+
+[sub_resource type="LabelSettings" id="LabelSettings_mkrng"]
+font_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hx42x"]
+content_margin_left = 65.0
+content_margin_top = 15.0
+content_margin_right = 40.0
+content_margin_bottom = 15.0
+bg_color = Color(0.607843, 0.505882, 0.847059, 0.12549)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 0.823529, 0.964706, 0.2)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_djucl"]
+content_margin_left = 65.0
+content_margin_top = 15.0
+content_margin_right = 40.0
+content_margin_bottom = 15.0
+bg_color = Color(0.137255, 0.0862745, 0.239216, 0.12549)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 0.823529, 0.964706, 0.2)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kyq14"]
+content_margin_left = 15.0
+content_margin_top = 8.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+bg_color = Color(0.760784, 0, 0.776471, 1)
+border_width_bottom = 5
+border_color = Color(0.54902, 0, 0.560784, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(1, 0.262745, 0.784314, 0.14902)
+shadow_size = 27
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qp0i4"]
+content_margin_left = 15.0
+content_margin_top = 8.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+bg_color = Color(0.898039, 0, 0.917647, 1)
+border_width_bottom = 5
+border_color = Color(0.631373, 0, 0.643137, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(1, 0.262745, 0.784314, 0.14902)
+shadow_size = 27
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ftho"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xffhi"]
+bg_color = Color(1, 1, 1, 0.203922)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_74ut5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1d8uv"]
+bg_color = Color(0.00784314, 0.0392157, 0.105882, 0.65098)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ytcn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k0q3m"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i7utu"]
+shader = ExtResource("2_eubmd")
+shader_parameter/progress = 1.0
+shader_parameter/noise_desnity = 30.0
+shader_parameter/beam_size = 0.041
+shader_parameter/color = Color(0, 0.458824, 0.811765, 1)
+shader_parameter/is_screen_reading = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rxhyl"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n8yyt"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0, 0, 0, 0.105882)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5r37i"]
+bg_color = Color(0.145098, 0.0901961, 0.415686, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0, 0, 0, 0.105882)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rdtr1"]
+bg_color = Color(0, 0.0666667, 0.145098, 0.243137)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_26suo"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0.0277842, 0, 0.347346, 0.0588235)
+shadow_size = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_djaxq"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0, 0, 0, 0.105882)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uluh3"]
+bg_color = Color(0.196078, 0.211765, 0.407843, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0, 0, 0, 0.105882)
+
+[sub_resource type="Gradient" id="Gradient_xnr46"]
+offsets = PackedFloat32Array(0, 0.0417288)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0yduf"]
+gradient = SubResource("Gradient_xnr46")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_twgq4"]
+resource_local_to_scene = true
+shader = ExtResource("3_8xvgr")
+shader_parameter/horizontal_speed = 0.1
+shader_parameter/vertical_speed = 0.1
+shader_parameter/overlay_texture = SubResource("GradientTexture2D_0yduf")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q6c7l"]
+content_margin_right = 15.0
+
+[sub_resource type="Animation" id="Animation_1uph0"]
+resource_name = "Close"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Layer/Box/BgBox:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Layer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Layer/Box:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(2.08165e-12, 2.08165e-12)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Layer/Background:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tinju"]
+resource_name = "Open"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Layer/Box/BgBox:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Layer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Layer/Box:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2.08165e-12, 2.08165e-12), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Layer/Background:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tdfnd"]
+_data = {
+"Close": SubResource("Animation_1uph0"),
+"Open": SubResource("Animation_tinju")
+}
+
+[sub_resource type="Animation" id="Animation_555ds"]
+resource_name = "Close"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Layer/Confirm/ConfirmPopup/BgBox:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Layer/Confirm/ConfirmPopup:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(2.08165e-12, 2.08165e-12)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Layer/Confirm:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Layer/Confirm/Bg:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3d5uf"]
+resource_name = "Open"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Layer/Confirm/ConfirmPopup/BgBox:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Layer/Confirm/ConfirmPopup:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2.08165e-12, 2.08165e-12), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Layer/Confirm:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Layer/Confirm/Bg:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ejkk7"]
+_data = {
+"Close": SubResource("Animation_555ds"),
+"Open": SubResource("Animation_3d5uf")
+}
+
+[node name="RegisterDialog" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_i7agj")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="Layer" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="Background" type="Panel" parent="CanvasLayer/Layer"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6f0l6")
+
+[node name="Box" type="PanelContainer" parent="CanvasLayer/Layer"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = -205.0
+offset_right = 169.0
+offset_bottom = 205.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(169, 205)
+theme_override_styles/panel = SubResource("StyleBoxEmpty_amey1")
+
+[node name="BgBox" type="PanelContainer" parent="CanvasLayer/Layer/Box"]
+clip_children = 1
+material = SubResource("ShaderMaterial_tsy64")
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_at1os")
+
+[node name="Background" type="Panel" parent="CanvasLayer/Layer/Box/BgBox"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_r237v")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Layer/Box/BgBox/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_opdj3")
+
+[node name="ScrollingBackground" type="TextureRect" parent="CanvasLayer/Layer/Box/BgBox/Background"]
+material = SubResource("ShaderMaterial_2vffh")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_y1nnq")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Layer/Box/BgBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Layer/Box/BgBox/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Title" type="HBoxContainer" parent="CanvasLayer/Layer/Box/BgBox/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="CanvasLayer/Layer/Box/BgBox/MarginContainer/VBoxContainer/Title"]
+layout_mode = 2
+text = "Sign Up"
+label_settings = SubResource("LabelSettings_mkrng")
+
+[node name="Control" type="Control" parent="CanvasLayer/Layer/Box/BgBox/MarginContainer/VBoxContainer/Title"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CloseButton" type="Button" parent="CanvasLayer/Layer/Box/BgBox/MarginContainer/VBoxContainer/Title"]
+custom_minimum_size = Vector2(20, 2.08165e-12)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+icon = ExtResource("5_7nd8e")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Form" type="VBoxContainer" parent="CanvasLayer/Layer/Box/BgBox/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 15
+
+[node name="IdTokenInput" type="LineEdit" parent="CanvasLayer/Layer/Box/BgBox/MarginContainer/VBoxContainer/Form"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_hx42x")
+theme_override_styles/focus = SubResource("StyleBoxFlat_hx42x")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_djucl")
+placeholder_text = "ID Token"
+editable = false
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/Layer/Box/BgBox/MarginContainer/VBoxContainer/Form/IdTokenInput"]
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 0
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 33.0
+offset_top = -8.0
+offset_right = 49.0
+offset_bottom = 6.0
+grow_vertical = 2
+texture = ExtResource("4_8ehst")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="NameInput" type="LineEdit" parent="CanvasLayer/Layer/Box/BgBox/MarginContainer/VBoxContainer/Form"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_hx42x")
+theme_override_styles/focus = SubResource("StyleBoxFlat_hx42x")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_djucl")
+placeholder_text = "Nickname"
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/Layer/Box/BgBox/MarginContainer/VBoxContainer/Form/NameInput"]
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 0
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 33.0
+offset_top = -8.0
+offset_right = 49.0
+offset_bottom = 6.0
+grow_vertical = 2
+texture = ExtResource("4_8ehst")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="PasswordInput" type="LineEdit" parent="CanvasLayer/Layer/Box/BgBox/MarginContainer/VBoxContainer/Form"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_hx42x")
+theme_override_styles/focus = SubResource("StyleBoxFlat_hx42x")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_djucl")
+placeholder_text = "Password"
+secret = true
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/Layer/Box/BgBox/MarginContainer/VBoxContainer/Form/PasswordInput"]
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 0
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 33.0
+offset_top = -8.0
+offset_right = 49.0
+offset_bottom = 6.0
+grow_vertical = 2
+texture = ExtResource("4_8ehst")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="PasswordAgainInput" type="LineEdit" parent="CanvasLayer/Layer/Box/BgBox/MarginContainer/VBoxContainer/Form"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_hx42x")
+theme_override_styles/focus = SubResource("StyleBoxFlat_hx42x")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_djucl")
+placeholder_text = "Re-type password"
+secret = true
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/Layer/Box/BgBox/MarginContainer/VBoxContainer/Form/PasswordAgainInput"]
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 0
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 33.0
+offset_top = -8.0
+offset_right = 49.0
+offset_bottom = 6.0
+grow_vertical = 2
+texture = ExtResource("4_8ehst")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Buttons" type="HBoxContainer" parent="CanvasLayer/Layer/Box/BgBox/MarginContainer/VBoxContainer/Form"]
+layout_mode = 2
+alignment = 1
+
+[node name="SubmitBtn" type="Button" parent="CanvasLayer/Layer/Box/BgBox/MarginContainer/VBoxContainer/Form/Buttons"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(140, 2.08165e-12)
+layout_mode = 2
+size_flags_vertical = 0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_kyq14")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qp0i4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kyq14")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_kyq14")
+theme_override_styles/focus = SubResource("StyleBoxFlat_kyq14")
+text = "Sign Up"
+icon = ExtResource("5_xx48y")
+
+[node name="Spacer" type="Control" parent="CanvasLayer/Layer/Box/BgBox/MarginContainer/VBoxContainer/Form/Buttons"]
+custom_minimum_size = Vector2(5, 2.08165e-12)
+layout_mode = 2
+
+[node name="WarningLabel" type="Label" parent="CanvasLayer/Layer/Box/BgBox/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "Error Message"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="CanvasLayer/Layer/Box/BgBox/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Or use"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Socials" type="HBoxContainer" parent="CanvasLayer/Layer/Box/BgBox/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Layer/Box/BgBox/MarginContainer/VBoxContainer/Socials"]
+layout_mode = 2
+
+[node name="AppleLoginBtn" type="TextureButton" parent="CanvasLayer/Layer/Box/BgBox/MarginContainer/VBoxContainer/Socials/VBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("8_iudqt")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Spacer" type="Control" parent="CanvasLayer/Layer/Box/BgBox/MarginContainer/VBoxContainer/Socials/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 4)
+layout_mode = 2
+
+[node name="GoogleLoginBtn" type="TextureButton" parent="CanvasLayer/Layer/Box/BgBox/MarginContainer/VBoxContainer/Socials"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("9_roeer")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="NewAccount" type="PanelContainer" parent="CanvasLayer/Layer/Box/BgBox/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_8ftho")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Layer/Box/BgBox/MarginContainer/VBoxContainer/NewAccount"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="CanvasLayer/Layer/Box/BgBox/MarginContainer/VBoxContainer/NewAccount/VBoxContainer"]
+layout_mode = 2
+
+[node name="Sep" type="Panel" parent="CanvasLayer/Layer/Box/BgBox/MarginContainer/VBoxContainer/NewAccount/VBoxContainer"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xffhi")
+
+[node name="Spacer2" type="Control" parent="CanvasLayer/Layer/Box/BgBox/MarginContainer/VBoxContainer/NewAccount/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 15)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Layer/Box/BgBox/MarginContainer/VBoxContainer/NewAccount/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/Layer/Box/BgBox/MarginContainer/VBoxContainer/NewAccount/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "You already have an account?"
+
+[node name="Register" type="VBoxContainer" parent="CanvasLayer/Layer/Box/BgBox/MarginContainer/VBoxContainer/NewAccount/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="LoginBtn" type="Button" parent="CanvasLayer/Layer/Box/BgBox/MarginContainer/VBoxContainer/NewAccount/VBoxContainer/HBoxContainer/Register"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.901961, 0.517647, 0.933333, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxEmpty_74ut5")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_74ut5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_74ut5")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_74ut5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_74ut5")
+text = "Login"
+flat = true
+
+[node name="Confirm" type="Control" parent="CanvasLayer/Layer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Bg" type="Panel" parent="CanvasLayer/Layer/Confirm"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1d8uv")
+
+[node name="ConfirmPopupBgCloserBtn" type="Button" parent="CanvasLayer/Layer/Confirm/Bg"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8ytcn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8ytcn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_8ytcn")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8ytcn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8ytcn")
+flat = true
+
+[node name="ConfirmPopup" type="PanelContainer" parent="CanvasLayer/Layer/Confirm"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -275.5
+offset_top = -67.5
+offset_right = 275.5
+offset_bottom = 67.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.08165e-12, 2.08165e-12)
+pivot_offset = Vector2(169, 205)
+theme_override_styles/panel = SubResource("StyleBoxEmpty_k0q3m")
+
+[node name="BgBox" type="PanelContainer" parent="CanvasLayer/Layer/Confirm/ConfirmPopup"]
+clip_children = 1
+material = SubResource("ShaderMaterial_i7utu")
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rxhyl")
+
+[node name="Background" type="Panel" parent="CanvasLayer/Layer/Confirm/ConfirmPopup/BgBox"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_n8yyt")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Layer/Confirm/ConfirmPopup/BgBox/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5r37i")
+
+[node name="ScrollingBackground" type="TextureRect" parent="CanvasLayer/Layer/Confirm/ConfirmPopup/BgBox/Background"]
+material = ExtResource("3_uvmme")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_y1nnq")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Layer/Confirm/ConfirmPopup/BgBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Layer/Confirm/ConfirmPopup/BgBox/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="IdTokenConfirmInput" type="LineEdit" parent="CanvasLayer/Layer/Confirm/ConfirmPopup/BgBox/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "Paste your ID token that you just noted..."
+
+[node name="ConfirmBtn" type="Button" parent="CanvasLayer/Layer/Confirm/ConfirmPopup/BgBox/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(140, 2.08165e-12)
+layout_mode = 2
+size_flags_vertical = 0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_kyq14")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qp0i4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kyq14")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_kyq14")
+theme_override_styles/focus = SubResource("StyleBoxFlat_kyq14")
+disabled = true
+text = "Sign Up"
+icon = ExtResource("5_xx48y")
+
+[node name="Waiting" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Waiting"]
+layer = 125
+
+[node name="WaitingLayer" type="Control" parent="Waiting/CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Bg" type="Panel" parent="Waiting/CanvasLayer/WaitingLayer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rdtr1")
+
+[node name="PanelContainer" type="PanelContainer" parent="Waiting/CanvasLayer/WaitingLayer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -246.0
+offset_top = -59.0
+offset_right = 246.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_26suo")
+
+[node name="Background" type="Panel" parent="Waiting/CanvasLayer/WaitingLayer/PanelContainer"]
+clip_children = 1
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_djaxq")
+
+[node name="Panel" type="Panel" parent="Waiting/CanvasLayer/WaitingLayer/PanelContainer/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_uluh3")
+
+[node name="ScrollingBackground" type="TextureRect" parent="Waiting/CanvasLayer/WaitingLayer/PanelContainer/Background"]
+material = SubResource("ShaderMaterial_twgq4")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_y1nnq")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Waiting/CanvasLayer/WaitingLayer/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Waiting/CanvasLayer/WaitingLayer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Icon" type="MarginContainer" parent="Waiting/CanvasLayer/WaitingLayer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Spinner" parent="Waiting/CanvasLayer/WaitingLayer/PanelContainer/VBoxContainer/HBoxContainer/Icon" instance=ExtResource("11_2dnch")]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Waiting/CanvasLayer/WaitingLayer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_q6c7l")
+text = "Creating new account..."
+vertical_alignment = 1
+
+[node name="Message" type="VBoxContainer" parent="Waiting/CanvasLayer/WaitingLayer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Waiting/CanvasLayer/WaitingLayer/PanelContainer/VBoxContainer/Message"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="Waiting/CanvasLayer/WaitingLayer/PanelContainer/VBoxContainer/Message/HBoxContainer"]
+custom_minimum_size = Vector2(10, 2.08165e-12)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Waiting/CanvasLayer/WaitingLayer/PanelContainer/VBoxContainer/Message/HBoxContainer"]
+layout_mode = 2
+text = "Your new account and wallet is being created... This may take some while, please wait."
+
+[node name="Spacer2" type="Control" parent="Waiting/CanvasLayer/WaitingLayer/PanelContainer/VBoxContainer/Message/HBoxContainer"]
+custom_minimum_size = Vector2(10, 2.08165e-12)
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="Waiting/CanvasLayer/WaitingLayer/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 20)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tdfnd")
+}
+
+[node name="ConfirmAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ejkk7")
+}
+
+[connection signal="pressed" from="CanvasLayer/Layer/Box/BgBox/MarginContainer/VBoxContainer/Title/CloseButton" to="." method="_on_CloseButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/Layer/Box/BgBox/MarginContainer/VBoxContainer/Form/Buttons/SubmitBtn" to="." method="_on_SubmitBtn_pressed"]
+[connection signal="pressed" from="CanvasLayer/Layer/Box/BgBox/MarginContainer/VBoxContainer/NewAccount/VBoxContainer/HBoxContainer/Register/LoginBtn" to="." method="_on_LoginBtn_pressed"]
+[connection signal="pressed" from="CanvasLayer/Layer/Confirm/Bg/ConfirmPopupBgCloserBtn" to="." method="_on_ConfirmPopupBgCloserBtn_pressed"]
+[connection signal="text_changed" from="CanvasLayer/Layer/Confirm/ConfirmPopup/BgBox/MarginContainer/VBoxContainer/IdTokenConfirmInput" to="." method="_on_IdTokenConfirmInput_text_changed"]
+[connection signal="pressed" from="CanvasLayer/Layer/Confirm/ConfirmPopup/BgBox/MarginContainer/VBoxContainer/ConfirmBtn" to="." method="_on_ConfirmBtn_pressed"]

@@ -1,0 +1,326 @@
+[gd_scene load_steps=14 format=3 uid="uid://djndgpm80xaxq"]
+
+[ext_resource type="Script" path="res://Scenes/TableList/TableList.gd" id="1_fo87l"]
+[ext_resource type="Material" uid="uid://b4wv5lw4jqvwj" path="res://Materials/ScrollingBacground.tres" id="2_ar6pn"]
+[ext_resource type="Texture2D" uid="uid://b2q06rg3abrxr" path="res://Assets/Sprites/poker-icons-bg.png" id="3_sh1rm"]
+[ext_resource type="Texture2D" uid="uid://cb0m2rg8exos8" path="res://Assets/Sprites/Icons/refresh.png" id="4_ffgar"]
+[ext_resource type="Texture2D" uid="uid://bbdhxlkmfbh18" path="res://Assets/Sprites/Icons/right.png" id="5_sv8nx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hvrmc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_soabh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7aa4j"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0.0277842, 0, 0.347346, 0.0588235)
+shadow_size = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_duecb"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0, 0, 0, 0.105882)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mfvb4"]
+bg_color = Color(0.137255, 0.14902, 0.298039, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0, 0, 0, 0.105882)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y6et5"]
+content_margin_left = 25.0
+content_margin_right = 25.0
+bg_color = Color(0.109804, 0.219608, 0.54902, 0.933333)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.231373, 0.384314, 0.866667, 1)
+corner_radius_top_left = 1024
+corner_radius_top_right = 1024
+corner_radius_bottom_right = 1024
+corner_radius_bottom_left = 1024
+shadow_color = Color(0.25098, 0.462745, 0.788235, 0.0862745)
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1tsmf"]
+content_margin_left = 15.0
+content_margin_top = 8.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+bg_color = Color(0.760784, 0, 0.776471, 1)
+border_width_bottom = 5
+border_color = Color(0.54902, 0, 0.560784, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(1, 0.262745, 0.784314, 0.14902)
+shadow_size = 27
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g40b3"]
+content_margin_left = 15.0
+content_margin_top = 8.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+bg_color = Color(0.898039, 0, 0.917647, 1)
+border_width_bottom = 5
+border_color = Color(0.631373, 0, 0.643137, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(1, 0.262745, 0.784314, 0.14902)
+shadow_size = 27
+
+[node name="TableList" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fo87l")
+style_odd = SubResource("StyleBoxEmpty_hvrmc")
+style_even = SubResource("StyleBoxEmpty_soabh")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7aa4j")
+
+[node name="Background" type="Panel" parent="PanelContainer"]
+clip_children = 1
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_duecb")
+
+[node name="Panel" type="Panel" parent="PanelContainer/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mfvb4")
+
+[node name="ScrollingBackground" type="TextureRect" parent="PanelContainer/Background"]
+material = ExtResource("2_ar6pn")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_sh1rm")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Header" type="MarginContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Header"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="PanelContainer/VBoxContainer/Header/HBoxContainer"]
+custom_minimum_size = Vector2(23, 2.08165e-12)
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="PanelContainer/VBoxContainer/Header/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Table List
+"
+vertical_alignment = 1
+
+[node name="Spacer2" type="Control" parent="PanelContainer/VBoxContainer/Header/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/Header/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="LengthOptionButton" type="OptionButton" parent="PanelContainer/VBoxContainer/Header/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(2.08165e-12, 40)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_y6et5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_y6et5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_y6et5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_y6et5")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_y6et5")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_y6et5")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_y6et5")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_y6et5")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_y6et5")
+flat = true
+item_count = 4
+selected = 1
+popup/item_0/text = "1"
+popup/item_0/id = 0
+popup/item_1/text = "10"
+popup/item_1/id = 1
+popup/item_2/text = "20"
+popup/item_2/id = 2
+popup/item_3/text = "30"
+popup/item_3/id = 3
+
+[node name="Spacer5" type="Control" parent="PanelContainer/VBoxContainer/Header/HBoxContainer"]
+custom_minimum_size = Vector2(25, 2.08165e-12)
+layout_mode = 2
+
+[node name="RefreshButton" type="TextureButton" parent="PanelContainer/VBoxContainer/Header/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("4_ffgar")
+stretch_mode = 3
+
+[node name="Spacer4" type="Control" parent="PanelContainer/VBoxContainer/Header/HBoxContainer"]
+custom_minimum_size = Vector2(25, 2.08165e-12)
+layout_mode = 2
+
+[node name="Content" type="VBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/Content"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Spacer" type="Control" parent="PanelContainer/VBoxContainer/Content/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 15)
+layout_mode = 2
+
+[node name="Header" type="HBoxContainer" parent="PanelContainer/VBoxContainer/Content/VBoxContainer"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="PanelContainer/VBoxContainer/Content/VBoxContainer/Header"]
+custom_minimum_size = Vector2(25, 2.08165e-12)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Content/VBoxContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Table"
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="PanelContainer/VBoxContainer/Content/VBoxContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Small Blind"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="PanelContainer/VBoxContainer/Content/VBoxContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Big Blind
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="PanelContainer/VBoxContainer/Content/VBoxContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Players / Watchers"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="PanelContainer/VBoxContainer/Content/VBoxContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Enter"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer2" type="Control" parent="PanelContainer/VBoxContainer/Content/VBoxContainer/Header"]
+custom_minimum_size = Vector2(25, 2.08165e-12)
+layout_mode = 2
+
+[node name="Spacer2" type="Control" parent="PanelContainer/VBoxContainer/Content/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 15)
+layout_mode = 2
+
+[node name="List" type="Control" parent="PanelContainer/VBoxContainer/Content/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Scrollable" type="ScrollContainer" parent="PanelContainer/VBoxContainer/Content/VBoxContainer/List"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="Items" type="VBoxContainer" parent="PanelContainer/VBoxContainer/Content/VBoxContainer/List/Scrollable"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PleaseLogin" type="Control" parent="PanelContainer/VBoxContainer/Content/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/Content/VBoxContainer/PleaseLogin"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Content/VBoxContainer/PleaseLogin/VBoxContainer"]
+layout_mode = 2
+text = "Please login to play!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer" type="Control" parent="PanelContainer/VBoxContainer/Content/VBoxContainer/PleaseLogin/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 20)
+layout_mode = 2
+
+[node name="LoginBtn" type="Button" parent="PanelContainer/VBoxContainer/Content/VBoxContainer/PleaseLogin/VBoxContainer"]
+custom_minimum_size = Vector2(140, 2.08165e-12)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_1tsmf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_g40b3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1tsmf")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1tsmf")
+theme_override_styles/focus = SubResource("StyleBoxFlat_1tsmf")
+text = "Login"
+icon = ExtResource("5_sv8nx")
+
+[node name="Spacer2" type="Control" parent="PanelContainer/VBoxContainer/Content/VBoxContainer/PleaseLogin/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 25)
+layout_mode = 2
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Header/HBoxContainer/RefreshButton" to="." method="_on_RefreshButton_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Content/VBoxContainer/PleaseLogin/VBoxContainer/LoginBtn" to="." method="_on_LoginBtn_pressed"]

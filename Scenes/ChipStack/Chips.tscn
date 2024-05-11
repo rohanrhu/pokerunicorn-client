@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://peke3pgx2hc8"]
+
+[ext_resource type="Script" path="res://Scenes/ChipStack/Chips.gd" id="1_bpqe5"]
+[ext_resource type="PackedScene" uid="uid://crcai036iihk6" path="res://Scenes/ChipStack/ChipsStack.tscn" id="2_e6bey"]
+
+[node name="Chips" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_bpqe5")
+
+[node name="PotPoint" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 797.0
+offset_right = 797.0
+
+[node name="ChipStackProto" parent="." instance=ExtResource("2_e6bey")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="Stacks" type="Control" parent="."]
+unique_name_in_owner = true
+anchors_preset = 0

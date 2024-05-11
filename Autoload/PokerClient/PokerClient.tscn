@@ -1,0 +1,303 @@
+[gd_scene load_steps=16 format=3 uid="uid://cvp3luskh7qxf"]
+
+[ext_resource type="Script" path="res://Autoload/PokerClient/PokerClient.gd" id="1_iy0j0"]
+[ext_resource type="Shader" path="res://Shaders/ScrollingBackground.gdshader" id="2_cp1vk"]
+[ext_resource type="PackedScene" uid="uid://desusls6t8l2r" path="res://Nodes/Spinner/Spinner.tscn" id="2_h0wbu"]
+[ext_resource type="Texture2D" uid="uid://b2q06rg3abrxr" path="res://Assets/Sprites/poker-icons-bg.png" id="3_f36wx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nj7ss"]
+bg_color = Color(0, 0.0666667, 0.145098, 0.243137)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fub5j"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0.0277842, 0, 0.347346, 0.0588235)
+shadow_size = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ueun"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0, 0, 0, 0.105882)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_brfox"]
+bg_color = Color(0.196078, 0.211765, 0.407843, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0, 0, 0, 0.105882)
+
+[sub_resource type="Gradient" id="Gradient_1r5pj"]
+offsets = PackedFloat32Array(0, 0.511177)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.262745)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_toy0c"]
+gradient = SubResource("Gradient_1r5pj")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_77qr1"]
+resource_local_to_scene = true
+shader = ExtResource("2_cp1vk")
+shader_parameter/horizontal_speed = 0.1
+shader_parameter/vertical_speed = 0.1
+shader_parameter/overlay_texture = SubResource("GradientTexture1D_toy0c")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1stud"]
+content_margin_right = 15.0
+
+[sub_resource type="Gradient" id="Gradient_bpiy4"]
+offsets = PackedFloat32Array(0, 0.511177)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.262745)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8d8m6"]
+gradient = SubResource("Gradient_bpiy4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_swf0h"]
+resource_local_to_scene = true
+shader = ExtResource("2_cp1vk")
+shader_parameter/horizontal_speed = 0.1
+shader_parameter/vertical_speed = 0.1
+shader_parameter/overlay_texture = SubResource("GradientTexture1D_8d8m6")
+
+[node name="PokerClient" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_iy0j0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 127
+
+[node name="Connecting" type="Control" parent="CanvasLayer"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Bg" type="Panel" parent="CanvasLayer/Connecting"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nj7ss")
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Connecting"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -246.0
+offset_top = -59.0
+offset_right = 246.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fub5j")
+
+[node name="Background" type="Panel" parent="CanvasLayer/Connecting/PanelContainer"]
+clip_children = 1
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4ueun")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Connecting/PanelContainer/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_brfox")
+
+[node name="ScrollingBackground" type="TextureRect" parent="CanvasLayer/Connecting/PanelContainer/Background"]
+material = SubResource("ShaderMaterial_77qr1")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_f36wx")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Connecting/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Connecting/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Icon" type="MarginContainer" parent="CanvasLayer/Connecting/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Spinner" parent="CanvasLayer/Connecting/PanelContainer/VBoxContainer/HBoxContainer/Icon" instance=ExtResource("2_h0wbu")]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/Connecting/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1stud")
+text = "Trying to establish the connection..."
+vertical_alignment = 1
+
+[node name="Message" type="VBoxContainer" parent="CanvasLayer/Connecting/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Connecting/PanelContainer/VBoxContainer/Message"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="CanvasLayer/Connecting/PanelContainer/VBoxContainer/Message/HBoxContainer"]
+custom_minimum_size = Vector2(10, 2.08165e-12)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Connecting/PanelContainer/VBoxContainer/Message/HBoxContainer"]
+layout_mode = 2
+text = "If the issue persists,"
+
+[node name="LinkButton" type="LinkButton" parent="CanvasLayer/Connecting/PanelContainer/VBoxContainer/Message/HBoxContainer"]
+layout_mode = 2
+text = "click here and contact us."
+
+[node name="Spacer" type="Control" parent="CanvasLayer/Connecting/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 20)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="OverCapacity" type="Control" parent="CanvasLayer"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Bg" type="Panel" parent="CanvasLayer/OverCapacity"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nj7ss")
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/OverCapacity"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -246.0
+offset_top = -59.0
+offset_right = 246.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fub5j")
+
+[node name="Background" type="Panel" parent="CanvasLayer/OverCapacity/PanelContainer"]
+clip_children = 1
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4ueun")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/OverCapacity/PanelContainer/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_brfox")
+
+[node name="ScrollingBackground" type="TextureRect" parent="CanvasLayer/OverCapacity/PanelContainer/Background"]
+material = SubResource("ShaderMaterial_swf0h")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_f36wx")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/OverCapacity/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/OverCapacity/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Icon" type="MarginContainer" parent="CanvasLayer/OverCapacity/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Spinner" parent="CanvasLayer/OverCapacity/PanelContainer/VBoxContainer/HBoxContainer/Icon" instance=ExtResource("2_h0wbu")]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/OverCapacity/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1stud")
+text = "The server is over capacity, retrying in some seconds..."
+vertical_alignment = 1
+
+[node name="Message" type="VBoxContainer" parent="CanvasLayer/OverCapacity/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/OverCapacity/PanelContainer/VBoxContainer/Message"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="CanvasLayer/OverCapacity/PanelContainer/VBoxContainer/Message/HBoxContainer"]
+custom_minimum_size = Vector2(10, 2.08165e-12)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/OverCapacity/PanelContainer/VBoxContainer/Message/HBoxContainer"]
+layout_mode = 2
+text = "If the issue persists,"
+
+[node name="LinkButton" type="LinkButton" parent="CanvasLayer/OverCapacity/PanelContainer/VBoxContainer/Message/HBoxContainer"]
+layout_mode = 2
+text = "click here and contact us."
+
+[node name="Spacer" type="Control" parent="CanvasLayer/OverCapacity/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 20)
+layout_mode = 2
+size_flags_vertical = 3

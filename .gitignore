@@ -1,0 +1,11 @@
+playground
+exports
+publish.log
+
+# Godot
+.godot/
+addons/godot-git-plugin
+
+# MacOS
+**/.DS_Store
+Icon

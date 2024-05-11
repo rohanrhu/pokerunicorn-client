@@ -1,0 +1,7 @@
+# Normalize EOL for all files that Git considers text files.
+* text=auto eol=lf
+
+*.html linguist-vendored
+*.css linguist-vendored
+documentation linguist-vendored
+docs linguist-vendored

@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3y3qxwyyewl2"]
+
+[ext_resource type="Script" path="res://Autoload/Sounds/Sounds.gd" id="1_38ymu"]
+[ext_resource type="AudioStream" uid="uid://de0fq80rmnl7n" path="res://Assets/Sounds/pop-2.wav" id="2_pdc4e"]
+[ext_resource type="AudioStream" uid="uid://beyk63w0p80qv" path="res://Assets/Sounds/trouble-bop.wav" id="3_aq0ys"]
+[ext_resource type="AudioStream" uid="uid://cy7mg5p07tk78" path="res://Assets/Sounds/fail.wav" id="4_i3vbn"]
+[ext_resource type="AudioStream" uid="uid://bex2shmn0ekok" path="res://Assets/Sounds/wrong.wav" id="5_mny8k"]
+
+[node name="Sounds" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_38ymu")
+
+[node name="Players" type="Control" parent="."]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PopPlayer" type="AudioStreamPlayer" parent="Players"]
+unique_name_in_owner = true
+stream = ExtResource("2_pdc4e")
+
+[node name="BopPlayer" type="AudioStreamPlayer" parent="Players"]
+unique_name_in_owner = true
+stream = ExtResource("3_aq0ys")
+
+[node name="FailPlayer" type="AudioStreamPlayer" parent="Players"]
+unique_name_in_owner = true
+stream = ExtResource("4_i3vbn")
+
+[node name="WrongPlayer" type="AudioStreamPlayer" parent="Players"]
+unique_name_in_owner = true
+stream = ExtResource("5_mny8k")

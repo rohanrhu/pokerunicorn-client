@@ -1,0 +1,206 @@
+[gd_scene load_steps=13 format=3 uid="uid://ctb3bvpw64yxv"]
+
+[ext_resource type="Script" path="res://Scenes/Loading/Loading.gd" id="1_ikwc6"]
+[ext_resource type="Script" path="res://Nodes/BorderRadius/BorderRadius.gd" id="4_4eijs"]
+[ext_resource type="Shader" path="res://Nodes/BorderRadius/BorderRadius.gdshader" id="4_fqp6q"]
+[ext_resource type="Texture2D" uid="uid://bq463g3unq07e" path="res://Assets/Sprites/chip.png" id="4_rlthj"]
+
+[sub_resource type="Animation" id="Animation_iyb8i"]
+resource_name = "Bounce"
+length = 1.35
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Layer/Box/TextureRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.35, 1, 1.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(2.08165e-12, 2.08165e-12), Vector2(1.35, 1.35), Vector2(1, 1), Vector2(1, 1), Vector2(2.08165e-12, 2.08165e-12)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Layer/Box/TextureRect:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.35, 1, 1.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(42, 159), Vector2(45, 41), Vector2(42, 41), Vector2(42, 41), Vector2(42, 159)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Layer/Box:material:shader_parameter/opacity")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.35, 1, 1.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Layer/Box/TextureRect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ne2ft"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Layer/Box/TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(45, 41)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yc06u"]
+_data = {
+"Bounce": SubResource("Animation_iyb8i"),
+"RESET": SubResource("Animation_ne2ft")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k766c"]
+bg_color = Color(0.129412, 0.176471, 0.443137, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wpk6j"]
+shader = ExtResource("4_fqp6q")
+shader_parameter/radius_top_left = 10.0
+shader_parameter/radius_top_right = 10.0
+shader_parameter/radius_bottom_left = 10.0
+shader_parameter/radius_bottom_right = 10.0
+shader_parameter/canvas_width = 260.0
+shader_parameter/canvas_height = 260.0
+
+[sub_resource type="Gradient" id="Gradient_ndy21"]
+interpolation_mode = 2
+colors = PackedColorArray(0.166907, 0.198133, 0.477792, 1, 0.174258, 0.307685, 0.655228, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ptj66"]
+gradient = SubResource("Gradient_ndy21")
+fill = 1
+repeat = 2
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h8hmk"]
+content_margin_left = 35.0
+content_margin_top = 35.0
+content_margin_right = 35.0
+content_margin_bottom = 35.0
+texture = SubResource("GradientTexture2D_ptj66")
+
+[node name="Loading" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ikwc6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_yc06u")
+}
+
+[node name="AnimateTimer" type="Timer" parent="."]
+wait_time = 0.668
+one_shot = true
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="Layer" type="Control" parent="CanvasLayer"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Panel" parent="CanvasLayer/Layer"]
+self_modulate = Color(0.00392157, 0.105882, 0.262745, 0.552941)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_k766c")
+
+[node name="Box" type="Panel" parent="CanvasLayer/Layer"]
+self_modulate = Color(1, 1, 1, 0.254902)
+material = SubResource("ShaderMaterial_wpk6j")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -130.0
+offset_top = -130.0
+offset_right = 130.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+pivot_offset = Vector2(132, 120)
+theme_override_styles/panel = SubResource("StyleBoxTexture_h8hmk")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Layer/Box"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.0
+offset_top = -89.0
+offset_right = 94.0
+offset_bottom = 97.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.08165e-12, 2.08165e-12)
+pivot_offset = Vector2(90, 93)
+texture = ExtResource("4_rlthj")
+
+[node name="BorderRadius" type="Control" parent="CanvasLayer/Layer/Box"]
+anchors_preset = 0
+script = ExtResource("4_4eijs")
+radius_top_left = 500
+radius_top_right = 500
+radius_bottom_left = 500
+radius_bottom_right = 500
+
+[connection signal="timeout" from="AnimateTimer" to="." method="_on_AnimateTimer_timeout"]

@@ -1,0 +1,431 @@
+[gd_scene load_steps=25 format=3 uid="uid://drkcnbi4u8o5j"]
+
+[ext_resource type="Script" path="res://Scenes/UserBox/UserBox.gd" id="2_1a7my"]
+[ext_resource type="Texture2D" uid="uid://b2q06rg3abrxr" path="res://Assets/Sprites/poker-icons-bg.png" id="3_d2qik"]
+[ext_resource type="Shader" path="res://Nodes/BorderRadius/BorderRadius.gdshader" id="3_f8xyj"]
+[ext_resource type="Texture2D" uid="uid://ddp5tr764ecny" path="res://Assets/Sprites/no-avatar.png" id="4_bs46w"]
+[ext_resource type="Texture2D" uid="uid://bbdhxlkmfbh18" path="res://Assets/Sprites/Icons/right.png" id="4_flna1"]
+[ext_resource type="Script" path="res://Nodes/BorderRadius/BorderRadius.gd" id="5_ugr80"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cwhr2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dnwfs"]
+bg_color = Color(0.137255, 0.168627, 0.231373, 1)
+border_color = Color(0.231373, 0.384314, 0.866667, 1)
+corner_radius_top_left = 29
+corner_radius_top_right = 29
+corner_radius_bottom_right = 29
+corner_radius_bottom_left = 29
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nkwtv"]
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jeqkr"]
+bg_color = Color(0.160784, 0.2, 0.333333, 1)
+border_color = Color(0.101961, 0.133333, 0.231373, 1)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+
+[sub_resource type="Shader" id="Shader_p1721"]
+code = "shader_type canvas_item;
+
+uniform float horizontal_speed = 0;
+uniform float vertical_speed = 0;
+
+uniform sampler2D overlay_texture;
+
+void fragment () {
+	COLOR = texture(TEXTURE, vec2(UV.x + TIME * horizontal_speed, UV.y + TIME * vertical_speed));
+	COLOR.a *= texture(overlay_texture, vec2(UV.y, 0)).a;
+}"
+
+[sub_resource type="Gradient" id="Gradient_dj2yk"]
+offsets = PackedFloat32Array(0.42772, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.262745)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lsfko"]
+gradient = SubResource("Gradient_dj2yk")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4hw0q"]
+resource_local_to_scene = true
+shader = SubResource("Shader_p1721")
+shader_parameter/horizontal_speed = 0.1
+shader_parameter/vertical_speed = 0.1
+shader_parameter/overlay_texture = SubResource("GradientTexture1D_lsfko")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gkt46"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_35b3x"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_66sdj"]
+bg_color = Color(0, 0, 0, 0.160784)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 8.0
+expand_margin_top = 5.0
+expand_margin_right = 8.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_huyy7"]
+bg_color = Color(0, 0, 0, 0.254902)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 8.0
+expand_margin_top = 5.0
+expand_margin_right = 8.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q3g3v"]
+content_margin_left = 15.0
+content_margin_top = 8.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+bg_color = Color(0.760784, 0, 0.776471, 1)
+border_width_bottom = 5
+border_color = Color(0.54902, 0, 0.560784, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(1, 0.262745, 0.784314, 0.14902)
+shadow_size = 27
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pfee7"]
+content_margin_left = 15.0
+content_margin_top = 8.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+bg_color = Color(0.898039, 0, 0.917647, 1)
+border_width_bottom = 5
+border_color = Color(0.631373, 0, 0.643137, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(1, 0.262745, 0.784314, 0.14902)
+shadow_size = 27
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8k8u7"]
+shader = ExtResource("3_f8xyj")
+shader_parameter/radius_top_left = 10.0
+shader_parameter/radius_top_right = 10.0
+shader_parameter/radius_bottom_left = 10.0
+shader_parameter/radius_bottom_right = 10.0
+shader_parameter/canvas_width = 59.0
+shader_parameter/canvas_height = 59.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iukjj"]
+content_margin_left = 10.0
+content_margin_right = 20.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ledkc"]
+bg_color = Color(1, 1, 1, 0.054902)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1ltcc"]
+
+[node name="UserBox" type="PanelContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 59)
+offset_right = 231.0
+offset_bottom = 59.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_cwhr2")
+script = ExtResource("2_1a7my")
+
+[node name="Background" type="Panel" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dnwfs")
+
+[node name="OpenedBgLayer" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Button" type="Button" parent="OpenedBgLayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="Freeform" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="OpenedSized" type="Control" parent="Freeform"]
+unique_name_in_owner = true
+top_level = true
+layout_mode = 1
+anchor_left = 0.339
+anchor_top = 0.206
+anchor_right = 0.701
+anchor_bottom = 0.779
+offset_left = -0.100015
+offset_top = 0.199988
+offset_right = 0.0999687
+offset_bottom = -0.200035
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Box" type="PanelContainer" parent="Freeform"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.25
+anchor_top = 2.805
+anchor_right = 2.58607
+anchor_bottom = 10.568
+offset_top = 48.5051
+offset_right = 1.04904e-05
+offset_bottom = -48.5122
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dnwfs")
+metadata/_edit_use_anchors_ = true
+
+[node name="BoxBackground" type="Panel" parent="Freeform/Box"]
+clip_children = 1
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nkwtv")
+
+[node name="Panel" type="Panel" parent="Freeform/Box/BoxBackground"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jeqkr")
+
+[node name="ScrollingBackground" type="TextureRect" parent="Freeform/Box/BoxBackground"]
+material = SubResource("ShaderMaterial_4hw0q")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_d2qik")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Opened" type="PanelContainer" parent="Freeform/Box"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_gkt46")
+
+[node name="Freeform" type="Control" parent="Freeform/Box/Opened"]
+layout_mode = 2
+
+[node name="OpenedAvatar" type="PanelContainer" parent="Freeform/Box/Opened/Freeform"]
+unique_name_in_owner = true
+clip_children = 1
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_35b3x")
+
+[node name="BoxAvatarTextureRect" type="TextureRect" parent="Freeform/Box/Opened/Freeform/OpenedAvatar"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("4_bs46w")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="Freeform/Box/Opened"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Freeform/Box/Opened/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="AvatarPlaceholder" type="Control" parent="Freeform/Box/Opened/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 50)
+layout_mode = 2
+
+[node name="ChangeAvatarButton" type="Button" parent="Freeform/Box/Opened/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_66sdj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_huyy7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_66sdj")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_66sdj")
+theme_override_styles/focus = SubResource("StyleBoxFlat_66sdj")
+text = "Change Avatar"
+
+[node name="Spacer" type="Control" parent="Freeform/Box/Opened/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Freeform/Box/Opened/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Nickname"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameInput" type="LineEdit" parent="Freeform/Box/Opened/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "Meow a nickname"
+alignment = 1
+
+[node name="Label2" type="Label" parent="Freeform/Box/Opened/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Deposit Address (XMR)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DepositAddressInput" type="LineEdit" parent="Freeform/Box/Opened/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "XMR Deposit Address"
+alignment = 1
+editable = false
+
+[node name="Label3" type="Label" parent="Freeform/Box/Opened/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Withdraw Address (XMR)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WithdrawAddressInput" type="LineEdit" parent="Freeform/Box/Opened/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "Not specified (required for withdrawal)"
+alignment = 1
+
+[node name="Spacer2" type="Control" parent="Freeform/Box/Opened/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SaveButton" type="Button" parent="Freeform/Box/Opened/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(140, 42)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_q3g3v")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pfee7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_q3g3v")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_q3g3v")
+theme_override_styles/focus = SubResource("StyleBoxFlat_q3g3v")
+text = "Save Changes"
+icon = ExtResource("4_flna1")
+
+[node name="NotOpened" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+
+[node name="AvatarTextureRect" type="TextureRect" parent="NotOpened"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_8k8u7")
+custom_minimum_size = Vector2(59, 2.08165e-12)
+layout_mode = 2
+texture = ExtResource("4_bs46w")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="BorderRadius" type="Control" parent="NotOpened/AvatarTextureRect"]
+anchors_preset = 0
+script = ExtResource("5_ugr80")
+radius_top_left = 500
+radius_top_right = 500
+radius_bottom_left = 500
+radius_bottom_right = 500
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NotOpened"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="Name" type="HBoxContainer" parent="NotOpened/VBoxContainer"]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="NotOpened/VBoxContainer/Name"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxEmpty_iukjj")
+text = "Not logged in"
+vertical_alignment = 2
+
+[node name="Separator" type="Panel" parent="NotOpened/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 1)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ledkc")
+
+[node name="Balance" type="HBoxContainer" parent="NotOpened/VBoxContainer"]
+layout_mode = 2
+
+[node name="BalanceLabel" type="Label" parent="NotOpened/VBoxContainer/Balance"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.65098)
+theme_override_font_sizes/font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxEmpty_iukjj")
+text = "Login or register to play"
+
+[node name="PanelContainer" type="PanelContainer" parent="NotOpened"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1ltcc")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1ltcc")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1ltcc")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1ltcc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1ltcc")
+flat = true
+metadata/_edit_lock_ = true
+
+[node name="AvatarFileDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Open a File"
+size = Vector2i(600, 400)
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+use_native_dialog = true
+
+[connection signal="pressed" from="OpenedBgLayer/Button" to="." method="_on_OpenedBgLayer_Button_pressed"]
+[connection signal="pressed" from="Freeform/Box/Opened/MarginContainer/VBoxContainer/ChangeAvatarButton" to="." method="_on_ChangeAvatarButton_pressed"]
+[connection signal="pressed" from="Freeform/Box/Opened/MarginContainer/VBoxContainer/SaveButton" to="." method="_on_SaveButton_pressed"]
+[connection signal="mouse_entered" from="Button" to="." method="_on_Button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_Button_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="file_selected" from="AvatarFileDialog" to="." method="_on_AvatarFileDialog_file_selected"]

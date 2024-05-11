@@ -1,0 +1,144 @@
+[gd_scene load_steps=11 format=3 uid="uid://bqb4otxkwr0n"]
+
+[ext_resource type="Texture2D" uid="uid://dyhxm50la363q" path="res://Assets/Sprites/cards.png" id="1_2c0ug"]
+[ext_resource type="Script" path="res://Scenes/Banners/WatchBanner/WatchBanner.gd" id="1_i6fub"]
+[ext_resource type="Texture2D" uid="uid://b2q06rg3abrxr" path="res://Assets/Sprites/poker-icons-bg.png" id="2_dhwkb"]
+[ext_resource type="Material" uid="uid://i4ccld6xbac0" path="res://Materials/ScrollingBacgroundReversed.tres" id="2_qprs4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pkkln"]
+bg_color = Color(0.137255, 0.14902, 0.298039, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0, 0, 0, 0.105882)
+
+[sub_resource type="Animation" id="Animation_jepob"]
+resource_name = "Idle"
+length = 1.5
+loop_mode = 2
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/Icon/CardsIcon:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.575, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.25, 1.25), Vector2(0.75, 0.75), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c8svq"]
+_data = {
+"Idle": SubResource("Animation_jepob")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_evwtj"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0, 0, 0, 0.105882)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4dt01"]
+bg_color = Color(0.576471, 0.168627, 0.592157, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0, 0, 0, 0.105882)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bgrd1"]
+content_margin_left = 50.0
+content_margin_top = 10.0
+content_margin_right = 50.0
+content_margin_bottom = 15.0
+
+[node name="WatchBanner" type="PanelContainer"]
+offset_right = 268.0
+offset_bottom = 177.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pkkln")
+script = ExtResource("1_i6fub")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_c8svq")
+}
+
+[node name="Background" type="Panel" parent="."]
+clip_children = 1
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_evwtj")
+
+[node name="Panel" type="Panel" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4dt01")
+
+[node name="ScrollingBackground" type="TextureRect" parent="Background"]
+material = ExtResource("2_qprs4")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_dhwkb")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 2)
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bgrd1")
+text = "Watch other games"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer3" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Icon" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CardsIcon" type="TextureRect" parent="VBoxContainer/Icon"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(134, 45)
+size_flags_vertical = 3
+texture = ExtResource("1_2c0ug")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Spacer2" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="DescLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bgrd1")
+text = "Pick one to watch"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

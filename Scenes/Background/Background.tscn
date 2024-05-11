@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=3 uid="uid://dipe3pkrjei27"]
+
+[ext_resource type="Script" path="res://Scenes/Background/Background.gd" id="1_5a7m7"]
+[ext_resource type="Texture2D" uid="uid://b2q06rg3abrxr" path="res://Assets/Sprites/poker-icons-bg.png" id="2_jqm30"]
+[ext_resource type="Material" uid="uid://b4wv5lw4jqvwj" path="res://Materials/ScrollingBacground.tres" id="2_oh7r5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q1tuw"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eeuty"]
+bg_color = Color(0.556863, 0.556863, 0.556863, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.427451, 0.627451, 0.933333, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+anti_aliasing = false
+
+[sub_resource type="Gradient" id="Gradient_daa2v"]
+colors = PackedColorArray(0.0509804, 0.0313726, 0.113725, 1, 0.105882, 0.0705882, 0.215686, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ftumo"]
+gradient = SubResource("Gradient_daa2v")
+width = 256
+height = 256
+fill_from = Vector2(0.540598, 0.980769)
+fill_to = Vector2(0.510684, 0)
+
+[node name="Background" type="Panel"]
+clip_children = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_q1tuw")
+script = ExtResource("1_5a7m7")
+
+[node name="Panel" type="Panel" parent="."]
+clip_children = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_eeuty")
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_ftumo")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="ScrollingBackground" type="TextureRect" parent="."]
+material = ExtResource("2_oh7r5")
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_jqm30")
+expand_mode = 1
+stretch_mode = 1

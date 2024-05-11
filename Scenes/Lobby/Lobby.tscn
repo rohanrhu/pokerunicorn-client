@@ -1,0 +1,258 @@
+[gd_scene load_steps=12 format=3 uid="uid://cw4q1dfg5t6iq"]
+
+[ext_resource type="Script" path="res://Scenes/Lobby/Lobby.gd" id="1_qd2a2"]
+[ext_resource type="PackedScene" uid="uid://dipe3pkrjei27" path="res://Scenes/Background/Background.tscn" id="2_03tpy"]
+[ext_resource type="PackedScene" uid="uid://djndgpm80xaxq" path="res://Scenes/TableList/TableList.tscn" id="2_8uiud"]
+[ext_resource type="PackedScene" uid="uid://drkcnbi4u8o5j" path="res://Scenes/UserBox/UserBox.tscn" id="4_gqpxy"]
+[ext_resource type="PackedScene" uid="uid://d05dfnc75im0u" path="res://Scenes/WinTitle/WinTitle.tscn" id="5_0as1t"]
+[ext_resource type="Texture2D" uid="uid://xxchdbbvvnbn" path="res://Assets/Sprites/Kinds/heart.png" id="6_ia3c4"]
+[ext_resource type="PackedScene" uid="uid://bqb4otxkwr0n" path="res://Scenes/Banners/WatchBanner/WatchBanner.tscn" id="6_krld7"]
+[ext_resource type="PackedScene" uid="uid://b743ejaumaoia" path="res://Scenes/WatchBoxes/WatchBoxes.tscn" id="7_um3yd"]
+[ext_resource type="Texture2D" uid="uid://cvksl0hset6sv" path="res://Assets/Sprites/pokerunicorn-mascot.png" id="9_27l0g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1jxe5"]
+bg_color = Color(0.556863, 0.556863, 0.556863, 0)
+border_color = Color(0.427451, 0.627451, 0.933333, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2hpn4"]
+
+[node name="Lobby" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qd2a2")
+
+[node name="Background" parent="." instance=ExtResource("2_03tpy")]
+layout_mode = 1
+is_web_styled = true
+stylebox__web = SubResource("StyleBoxFlat_1jxe5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="WinTitle" parent="VBoxContainer" instance=ExtResource("5_0as1t")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Logo" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/Logo"]
+custom_minimum_size = Vector2(10, 2.08165e-12)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/Logo"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.505882, 0.670588, 0.976471, 1)
+theme_override_font_sizes/font_size = 25
+text = "PokerGame"
+vertical_alignment = 1
+
+[node name="Spacer2" type="Control" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/Logo"]
+visible = false
+custom_minimum_size = Vector2(25, 2.08165e-12)
+layout_mode = 2
+
+[node name="Version" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/Logo"]
+layout_mode = 2
+alignment = 1
+
+[node name="Spacer" type="Control" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/Logo/Version"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="UserBox" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/HBoxContainer" instance=ExtResource("4_gqpxy")]
+unique_name_in_owner = true
+visibility_layer = 3
+layout_mode = 2
+
+[node name="Spacer2" type="Control" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 10)
+layout_mode = 2
+
+[node name="Lists" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="JoinList" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/Lists"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="JoinTableList" parent="VBoxContainer/MarginContainer/VBoxContainer/Lists/JoinList" instance=ExtResource("2_8uiud")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Spacer3" type="Control" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 10)
+layout_mode = 2
+
+[node name="Banners" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(2.08165e-12, 150)
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Watch" type="Control" parent="VBoxContainer/MarginContainer/VBoxContainer/Banners"]
+clip_contents = true
+custom_minimum_size = Vector2(260, 2.08165e-12)
+layout_mode = 2
+
+[node name="WatchBanner" parent="VBoxContainer/MarginContainer/VBoxContainer/Banners/Watch" instance=ExtResource("6_krld7")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WatchBoxes" parent="VBoxContainer/MarginContainer/VBoxContainer/Banners" instance=ExtResource("7_um3yd")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Bottom" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_2hpn4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Bottom"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="VBoxContainer/Bottom/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 10)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Bottom/VBoxContainer"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="VBoxContainer/Bottom/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(15, 2.08165e-12)
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/Bottom/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+texture = ExtResource("6_ia3c4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Spacer6" type="Control" parent="VBoxContainer/Bottom/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(2, 2.08165e-12)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Bottom/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "PokerGame"
+
+[node name="Spacer7" type="Control" parent="VBoxContainer/Bottom/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(2, 2.08165e-12)
+layout_mode = 2
+
+[node name="ServerInfoLabel" type="Label" parent="VBoxContainer/Bottom/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "[Server Info]"
+
+[node name="Spacer2" type="Control" parent="VBoxContainer/Bottom/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DownloadLink" type="LinkButton" parent="VBoxContainer/Bottom/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Download for Desktop"
+underline = 1
+uri = "https://rohanrhu.github.io/pokerunicorn-website/downloads"
+
+[node name="Spacer3" type="Control" parent="VBoxContainer/Bottom/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(15, 2.08165e-12)
+layout_mode = 2
+
+[node name="PrivacyPolicyLink" type="LinkButton" parent="VBoxContainer/Bottom/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Privacy Policy"
+underline = 1
+uri = "https://google.com"
+
+[node name="Spacer4" type="Control" parent="VBoxContainer/Bottom/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(15, 2.08165e-12)
+layout_mode = 2
+
+[node name="TermsOfUseLink" type="LinkButton" parent="VBoxContainer/Bottom/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Terms of Use"
+underline = 1
+uri = "https://google.com"
+
+[node name="Spacer5" type="Control" parent="VBoxContainer/Bottom/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(15, 2.08165e-12)
+layout_mode = 2
+
+[node name="Spacer2" type="Control" parent="VBoxContainer/Bottom/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 10)
+layout_mode = 2
+
+[node name="Logo" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 42.0
+offset_right = 241.0
+offset_bottom = 162.0
+
+[node name="LogoTextureRect" type="TextureRect" parent="Logo"]
+custom_minimum_size = Vector2(80, 120)
+layout_mode = 2
+texture = ExtResource("9_27l0g")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Logo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "PokerUnicorn
+"
+
+[node name="GetAccountTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 90.0
+
+[connection signal="quitting" from="VBoxContainer/WinTitle" to="." method="_on_WinTitle_quitting"]
+[connection signal="refreshing" from="VBoxContainer/MarginContainer/VBoxContainer/Lists/JoinList/JoinTableList" to="." method="_on_JoinTableList_refreshing"]
+[connection signal="timeout" from="GetAccountTimer" to="." method="_on_GetAccountTimer_timeout"]

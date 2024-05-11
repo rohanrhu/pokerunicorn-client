@@ -1,0 +1,268 @@
+[gd_scene load_steps=14 format=3 uid="uid://btjjacareyevl"]
+
+[ext_resource type="Script" path="res://Scenes/WatchBoxes/WatchBox.gd" id="1_kgbo0"]
+[ext_resource type="Material" uid="uid://i4ccld6xbac0" path="res://Materials/ScrollingBacgroundReversed.tres" id="2_5snvp"]
+[ext_resource type="Texture2D" uid="uid://b2q06rg3abrxr" path="res://Assets/Sprites/poker-icons-bg.png" id="3_c5jqy"]
+[ext_resource type="PackedScene" uid="uid://desusls6t8l2r" path="res://Nodes/Spinner/Spinner.tscn" id="3_jrf36"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uexag"]
+
+[sub_resource type="Animation" id="Animation_jepob"]
+resource_name = "Idle"
+length = 1.5
+loop_mode = 2
+step = 0.025
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c8svq"]
+_data = {
+"Idle": SubResource("Animation_jepob")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_evwtj"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0, 0, 0, 0.105882)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f28of"]
+bg_color = Color(0.188235, 0.219608, 0.231373, 0.341176)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0, 0, 0, 0.105882)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_32kft"]
+load_path = "res://.godot/imported/poker-icons-bg.png-6b810681a8c6cb041168f8d169219848.ctex"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q2jp4"]
+bg_color = Color(0.0627451, 0.286275, 1, 0.341176)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0, 0, 0, 0.105882)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bgrd1"]
+content_margin_left = 3.0
+content_margin_top = 2.0
+content_margin_right = 3.0
+content_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5fhn7"]
+bg_color = Color(1, 1, 1, 0.164706)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 8.0
+expand_margin_right = 10.0
+expand_margin_bottom = 8.0
+
+[node name="WatchBox" type="PanelContainer"]
+custom_minimum_size = Vector2(268, 2.08165e-12)
+offset_right = 268.0
+offset_bottom = 187.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_uexag")
+script = ExtResource("1_kgbo0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_c8svq")
+}
+
+[node name="EmptyBackground" type="Panel" parent="."]
+unique_name_in_owner = true
+visible = false
+clip_children = 1
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_evwtj")
+
+[node name="Panel" type="Panel" parent="EmptyBackground"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_f28of")
+
+[node name="ScrollingBackground" type="TextureRect" parent="EmptyBackground"]
+material = ExtResource("2_5snvp")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = 3.0
+offset_right = -2.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_32kft")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="PlayingBackground" type="Panel" parent="."]
+unique_name_in_owner = true
+clip_children = 1
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_evwtj")
+
+[node name="Panel" type="Panel" parent="PlayingBackground"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_q2jp4")
+
+[node name="ScrollingBackground" type="TextureRect" parent="PlayingBackground"]
+material = ExtResource("2_5snvp")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = 3.0
+offset_right = -2.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_c5jqy")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="NoSession" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="NoSession"]
+custom_minimum_size = Vector2(2.08165e-12, 2)
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="NoSession"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.839216, 0.839216, 0.839216, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bgrd1")
+text = "No game to watch..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer3" type="Control" parent="NoSession"]
+custom_minimum_size = Vector2(2.08165e-12, 2)
+layout_mode = 2
+
+[node name="Icon" type="ColorRect" parent="NoSession"]
+modulate = Color(1, 1, 1, 0.435294)
+clip_children = 1
+custom_minimum_size = Vector2(2.08165e-12, 55)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Spinner" parent="NoSession/Icon" instance=ExtResource("3_jrf36")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.0
+offset_top = -33.0
+offset_right = 33.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Spacer2" type="Control" parent="NoSession"]
+custom_minimum_size = Vector2(2.08165e-12, 15)
+layout_mode = 2
+
+[node name="DescLabel" type="Label" parent="NoSession"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.776471, 0.776471, 0.776471, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bgrd1")
+text = "No one playing poker"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Spacer4" type="Control" parent="NoSession"]
+custom_minimum_size = Vector2(2.08165e-12, 10)
+layout_mode = 2
+
+[node name="Session" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="Session"]
+custom_minimum_size = Vector2(2.08165e-12, 2)
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="Session"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.839216, 0.839216, 0.839216, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bgrd1")
+text = "Playing Session"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer3" type="Control" parent="Session"]
+custom_minimum_size = Vector2(2.08165e-12, 2)
+layout_mode = 2
+
+[node name="PlayerNames" type="ScrollContainer" parent="Session"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Items" type="VBoxContainer" parent="Session/PlayerNames"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Spacer2" type="Control" parent="Session"]
+layout_mode = 2
+
+[node name="JoinButton" type="Button" parent="Session"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.776471, 0.776471, 0.776471, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bgrd1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5fhn7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5fhn7")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_5fhn7")
+theme_override_styles/focus = SubResource("StyleBoxFlat_5fhn7")
+text = "Join this session"
+
+[node name="FullLabel" type="Label" parent="Session"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.776471, 0.776471, 0.776471, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bgrd1")
+text = "No one playing poker"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Spacer4" type="Control" parent="Session"]
+custom_minimum_size = Vector2(2.08165e-12, 10)
+layout_mode = 2
+
+[connection signal="pressed" from="Session/JoinButton" to="." method="_on_JoinButton_pressed"]

@@ -1,0 +1,734 @@
+[gd_scene load_steps=33 format=3 uid="uid://liuc3q8c1vo8"]
+
+[ext_resource type="Script" path="res://Autoload/LoginDialog/LoginDialog.gd" id="1_bx025"]
+[ext_resource type="Shader" path="res://Shaders/Skew.gdshader" id="2_t2g3d"]
+[ext_resource type="Shader" path="res://Shaders/Teleport.gdshader" id="3_3cjd3"]
+[ext_resource type="Material" uid="uid://b4wv5lw4jqvwj" path="res://Materials/ScrollingBacground.tres" id="4_kppfv"]
+[ext_resource type="Texture2D" uid="uid://b2q06rg3abrxr" path="res://Assets/Sprites/poker-icons-bg.png" id="4_mposs"]
+[ext_resource type="Texture2D" uid="uid://difpu4nof0f6d" path="res://Assets/Sprites/Icons/email.png" id="4_mtq0s"]
+[ext_resource type="Texture2D" uid="uid://bbdhxlkmfbh18" path="res://Assets/Sprites/Icons/right.png" id="5_fcfbb"]
+[ext_resource type="Texture2D" uid="uid://ceahlw8is6iar" path="res://Assets/Sprites/Icons/apple.png" id="6_vubia"]
+[ext_resource type="Texture2D" uid="uid://da46m0adbqq6i" path="res://Assets/Sprites/Icons/google.png" id="7_1co3q"]
+[ext_resource type="Texture2D" uid="uid://d20h444wxko53" path="res://Assets/Sprites/Icons/close.png" id="9_fsfuw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1qr5n"]
+bg_color = Color(0, 0, 0, 0.196078)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+anti_aliasing = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b7vuk"]
+shader = ExtResource("2_t2g3d")
+shader_parameter/fov = 90.0
+shader_parameter/cull_back = true
+shader_parameter/y_rot = 0.0
+shader_parameter/x_rot = 0.0
+shader_parameter/inset = 0.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u2gx3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4mn5e"]
+shader = ExtResource("3_3cjd3")
+shader_parameter/progress = 0.0
+shader_parameter/noise_desnity = 30.0
+shader_parameter/beam_size = 0.041
+shader_parameter/color = Color(0, 0.458824, 0.811765, 1)
+shader_parameter/is_screen_reading = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ncp0"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eu85u"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0, 0, 0, 0.105882)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7tg61"]
+bg_color = Color(0.145098, 0.0901961, 0.415686, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0, 0, 0, 0.105882)
+anti_aliasing = false
+
+[sub_resource type="LabelSettings" id="LabelSettings_gl7oe"]
+font_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_whjt8"]
+content_margin_left = 65.0
+content_margin_top = 15.0
+content_margin_right = 40.0
+content_margin_bottom = 15.0
+bg_color = Color(0.607843, 0.505882, 0.847059, 0.12549)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 0.823529, 0.964706, 0.2)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mxpjc"]
+content_margin_left = 65.0
+content_margin_top = 15.0
+content_margin_right = 40.0
+content_margin_bottom = 15.0
+bg_color = Color(0.137255, 0.0862745, 0.239216, 0.12549)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 0.823529, 0.964706, 0.2)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rcba4"]
+content_margin_left = 15.0
+content_margin_top = 8.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+bg_color = Color(0.760784, 0, 0.776471, 1)
+border_width_bottom = 5
+border_color = Color(0.54902, 0, 0.560784, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(1, 0.262745, 0.784314, 0.14902)
+shadow_size = 27
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mva7a"]
+content_margin_left = 15.0
+content_margin_top = 8.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+bg_color = Color(0.898039, 0, 0.917647, 1)
+border_width_bottom = 5
+border_color = Color(0.631373, 0, 0.643137, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(1, 0.262745, 0.784314, 0.14902)
+shadow_size = 27
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2m76u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jg4r4"]
+bg_color = Color(1, 1, 1, 0.203922)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4lu2c"]
+content_margin_left = 15.0
+content_margin_top = 8.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0.435294, 0.858824, 1)
+border_width_bottom = 5
+border_color = Color(0, 0.286275, 0.584314, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(0, 0.262745, 0.580392, 0.168627)
+shadow_size = 27
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rpixe"]
+content_margin_left = 15.0
+content_margin_top = 8.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0.509804, 0.996078, 1)
+border_width_bottom = 5
+border_color = Color(0, 0.337255, 0.682353, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(0, 0.262745, 0.580392, 0.168627)
+shadow_size = 27
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4pir5"]
+content_margin_left = 15.0
+content_margin_top = 8.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0.490196, 0.964706, 1)
+border_width_bottom = 5
+border_color = Color(0, 0.345098, 0.694118, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(0, 0.298039, 0.65098, 0.486275)
+shadow_size = 27
+
+[sub_resource type="Animation" id="Animation_f3yv1"]
+resource_name = "Close"
+length = 0.5
+step = 0.02
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Layer/SubViewportContainer/SubViewport/Box/BgBox:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.75]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Layer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Layer/SubViewportContainer/SubViewport/Box:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.12, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(2.08165e-12, 2.08165e-12)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Layer/Background:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ns50l"]
+resource_name = "Open"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Layer/SubViewportContainer/SubViewport/Box/BgBox:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.35),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Layer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Layer/SubViewportContainer/SubViewport/Box:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2.08165e-12, 2.08165e-12), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Layer/Background:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_lsfgi"]
+resource_name = "StageDown"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Layer/SubViewportContainer:material:shader_parameter/y_rot")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 20.268]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Layer/SubViewportContainer:material:shader_parameter/inset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Layer/SubViewportContainer:anchor_left")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Layer/SubViewportContainer:anchor_right")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.391]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/Layer/SubViewportContainer:offset_left")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -100]
+}
+
+[sub_resource type="Animation" id="Animation_unqqn"]
+resource_name = "StageUp"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Layer/SubViewportContainer:material:shader_parameter/y_rot")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [20.268, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Layer/SubViewportContainer:material:shader_parameter/inset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Layer/SubViewportContainer:anchor_left")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Layer/SubViewportContainer:anchor_right")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.391, 1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/Layer/SubViewportContainer:offset_left")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-100, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b82ex"]
+_data = {
+"Close": SubResource("Animation_f3yv1"),
+"Open": SubResource("Animation_ns50l"),
+"StageDown": SubResource("Animation_lsfgi"),
+"StageUp": SubResource("Animation_unqqn")
+}
+
+[node name="LoginDialog" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_bx025")
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="Layer" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="Background" type="Panel" parent="CanvasLayer/Layer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1qr5n")
+metadata/_edit_lock_ = true
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer/Layer"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_b7vuk")
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(212, 257)
+stretch = true
+metadata/_edit_lock_ = true
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/Layer/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(900, 800)
+render_target_update_mode = 4
+
+[node name="Box" type="PanelContainer" parent="CanvasLayer/Layer/SubViewportContainer/SubViewport"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -202.0
+offset_right = 160.0
+offset_bottom = 202.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(169, 205)
+theme_override_styles/panel = SubResource("StyleBoxEmpty_u2gx3")
+
+[node name="BgBox" type="PanelContainer" parent="CanvasLayer/Layer/SubViewportContainer/SubViewport/Box"]
+clip_children = 1
+material = SubResource("ShaderMaterial_4mn5e")
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1ncp0")
+
+[node name="Background" type="Panel" parent="CanvasLayer/Layer/SubViewportContainer/SubViewport/Box/BgBox"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_eu85u")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Layer/SubViewportContainer/SubViewport/Box/BgBox/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7tg61")
+
+[node name="ScrollingBackground" type="TextureRect" parent="CanvasLayer/Layer/SubViewportContainer/SubViewport/Box/BgBox/Background"]
+material = ExtResource("4_kppfv")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_mposs")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Layer/SubViewportContainer/SubViewport/Box/BgBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Layer/SubViewportContainer/SubViewport/Box/BgBox/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Title" type="HBoxContainer" parent="CanvasLayer/Layer/SubViewportContainer/SubViewport/Box/BgBox/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="CanvasLayer/Layer/SubViewportContainer/SubViewport/Box/BgBox/MarginContainer/VBoxContainer/Title"]
+layout_mode = 2
+text = "Login"
+label_settings = SubResource("LabelSettings_gl7oe")
+
+[node name="Control" type="Control" parent="CanvasLayer/Layer/SubViewportContainer/SubViewport/Box/BgBox/MarginContainer/VBoxContainer/Title"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CloseButton" type="Button" parent="CanvasLayer/Layer/SubViewportContainer/SubViewport/Box/BgBox/MarginContainer/VBoxContainer/Title"]
+custom_minimum_size = Vector2(20, 2.08165e-12)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+icon = ExtResource("9_fsfuw")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Form" type="VBoxContainer" parent="CanvasLayer/Layer/SubViewportContainer/SubViewport/Box/BgBox/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 15
+
+[node name="IdTokenInput" type="LineEdit" parent="CanvasLayer/Layer/SubViewportContainer/SubViewport/Box/BgBox/MarginContainer/VBoxContainer/Form"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_whjt8")
+theme_override_styles/focus = SubResource("StyleBoxFlat_whjt8")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_mxpjc")
+placeholder_text = "ID Token"
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/Layer/SubViewportContainer/SubViewport/Box/BgBox/MarginContainer/VBoxContainer/Form/IdTokenInput"]
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 0
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 33.0
+offset_top = -8.0
+offset_right = 49.0
+offset_bottom = 6.0
+grow_vertical = 2
+texture = ExtResource("4_mtq0s")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="PasswordInput" type="LineEdit" parent="CanvasLayer/Layer/SubViewportContainer/SubViewport/Box/BgBox/MarginContainer/VBoxContainer/Form"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_whjt8")
+theme_override_styles/focus = SubResource("StyleBoxFlat_whjt8")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_mxpjc")
+placeholder_text = "Password"
+secret = true
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/Layer/SubViewportContainer/SubViewport/Box/BgBox/MarginContainer/VBoxContainer/Form/PasswordInput"]
+modulate = Color(1, 1, 1, 0.784314)
+layout_mode = 0
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 33.0
+offset_top = -8.0
+offset_right = 49.0
+offset_bottom = 6.0
+grow_vertical = 2
+texture = ExtResource("4_mtq0s")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Buttons" type="HBoxContainer" parent="CanvasLayer/Layer/SubViewportContainer/SubViewport/Box/BgBox/MarginContainer/VBoxContainer/Form"]
+layout_mode = 2
+alignment = 1
+
+[node name="LoginBtn" type="Button" parent="CanvasLayer/Layer/SubViewportContainer/SubViewport/Box/BgBox/MarginContainer/VBoxContainer/Form/Buttons"]
+custom_minimum_size = Vector2(140, 42)
+layout_mode = 2
+size_flags_vertical = 0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_rcba4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mva7a")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rcba4")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_rcba4")
+theme_override_styles/focus = SubResource("StyleBoxFlat_rcba4")
+text = "Login"
+icon = ExtResource("5_fcfbb")
+
+[node name="Spacer" type="Control" parent="CanvasLayer/Layer/SubViewportContainer/SubViewport/Box/BgBox/MarginContainer/VBoxContainer/Form"]
+custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
+layout_mode = 2
+
+[node name="WarningLabel" type="Label" parent="CanvasLayer/Layer/SubViewportContainer/SubViewport/Box/BgBox/MarginContainer/VBoxContainer/Form"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Error Message"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/Layer/SubViewportContainer/SubViewport/Box/BgBox/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Or use"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Socials" type="HBoxContainer" parent="CanvasLayer/Layer/SubViewportContainer/SubViewport/Box/BgBox/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Layer/SubViewportContainer/SubViewport/Box/BgBox/MarginContainer/VBoxContainer/Socials"]
+layout_mode = 2
+
+[node name="AppleLoginBtn" type="TextureButton" parent="CanvasLayer/Layer/SubViewportContainer/SubViewport/Box/BgBox/MarginContainer/VBoxContainer/Socials/VBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("6_vubia")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Spacer" type="Control" parent="CanvasLayer/Layer/SubViewportContainer/SubViewport/Box/BgBox/MarginContainer/VBoxContainer/Socials/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 4)
+layout_mode = 2
+
+[node name="GoogleLoginBtn" type="TextureButton" parent="CanvasLayer/Layer/SubViewportContainer/SubViewport/Box/BgBox/MarginContainer/VBoxContainer/Socials"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("7_1co3q")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="NewAccount" type="PanelContainer" parent="CanvasLayer/Layer/SubViewportContainer/SubViewport/Box/BgBox/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_2m76u")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Layer/SubViewportContainer/SubViewport/Box/BgBox/MarginContainer/VBoxContainer/NewAccount"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="CanvasLayer/Layer/SubViewportContainer/SubViewport/Box/BgBox/MarginContainer/VBoxContainer/NewAccount/VBoxContainer"]
+layout_mode = 2
+
+[node name="Sep" type="Panel" parent="CanvasLayer/Layer/SubViewportContainer/SubViewport/Box/BgBox/MarginContainer/VBoxContainer/NewAccount/VBoxContainer"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jg4r4")
+
+[node name="Spacer2" type="Control" parent="CanvasLayer/Layer/SubViewportContainer/SubViewport/Box/BgBox/MarginContainer/VBoxContainer/NewAccount/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 15)
+layout_mode = 2
+
+[node name="Register" type="VBoxContainer" parent="CanvasLayer/Layer/SubViewportContainer/SubViewport/Box/BgBox/MarginContainer/VBoxContainer/NewAccount/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Layer/SubViewportContainer/SubViewport/Box/BgBox/MarginContainer/VBoxContainer/NewAccount/VBoxContainer/Register"]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/Layer/SubViewportContainer/SubViewport/Box/BgBox/MarginContainer/VBoxContainer/NewAccount/VBoxContainer/Register/HBoxContainer"]
+layout_mode = 2
+text = "Don't have an account?"
+
+[node name="Spacer" type="Control" parent="CanvasLayer/Layer/SubViewportContainer/SubViewport/Box/BgBox/MarginContainer/VBoxContainer/NewAccount/VBoxContainer/Register"]
+custom_minimum_size = Vector2(2.08165e-12, 10)
+layout_mode = 2
+
+[node name="RegisterBtn" type="Button" parent="CanvasLayer/Layer/SubViewportContainer/SubViewport/Box/BgBox/MarginContainer/VBoxContainer/NewAccount/VBoxContainer/Register"]
+custom_minimum_size = Vector2(2.08165e-12, 42)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_4lu2c")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rpixe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4lu2c")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_4lu2c")
+theme_override_styles/focus = SubResource("StyleBoxFlat_4pir5")
+text = "Sign Up"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Layer"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_b82ex")
+}
+
+[connection signal="pressed" from="CanvasLayer/Layer/SubViewportContainer/SubViewport/Box/BgBox/MarginContainer/VBoxContainer/Title/CloseButton" to="." method="_on_CloseButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/Layer/SubViewportContainer/SubViewport/Box/BgBox/MarginContainer/VBoxContainer/Form/Buttons/LoginBtn" to="." method="_on_LoginBtn_pressed"]
+[connection signal="pressed" from="CanvasLayer/Layer/SubViewportContainer/SubViewport/Box/BgBox/MarginContainer/VBoxContainer/NewAccount/VBoxContainer/Register/RegisterBtn" to="." method="_on_RegisterBtn_pressed"]

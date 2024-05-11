@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://cutvtj7ur47tv"]
+
+[ext_resource type="Script" path="res://Autoload/Sessions/Sessions.gd" id="1_m0sds"]
+
+[node name="ASessions" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_m0sds")
+
+[node name="GameWindowProto" type="Window" parent="."]
+unique_name_in_owner = true
+transparent_bg = true
+initial_position = 1
+size = Vector2i(757, 673)
+visible = false
+borderless = true
+transparent = true
+min_size = Vector2i(757, 673)
+max_size = Vector2i(1200, 1100)
+
+[node name="GameWindows" type="Control" parent="."]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

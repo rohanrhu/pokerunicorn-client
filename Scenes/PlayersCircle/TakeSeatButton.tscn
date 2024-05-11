@@ -1,0 +1,297 @@
+[gd_scene load_steps=16 format=3 uid="uid://cad1et6rl45p2"]
+
+[ext_resource type="Script" path="res://Scenes/PlayersCircle/TakeSeatButton.gd" id="1_umbsn"]
+[ext_resource type="Texture2D" uid="uid://b1lhuuylei2bv" path="res://Assets/Sprites/Icons/play.png" id="2_01cmb"]
+[ext_resource type="Shader" path="res://Shaders/ScrollingBackground.gdshader" id="2_yk1tt"]
+[ext_resource type="Texture2D" uid="uid://b2q06rg3abrxr" path="res://Assets/Sprites/poker-icons-bg.png" id="3_lvsx8"]
+[ext_resource type="Texture2D" uid="uid://d20h444wxko53" path="res://Assets/Sprites/Icons/close.png" id="5_eg7rn"]
+[ext_resource type="Texture2D" uid="uid://bbdhxlkmfbh18" path="res://Assets/Sprites/Icons/right.png" id="6_n4s2c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qiwpq"]
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nmsg5"]
+bg_color = Color(0.160784, 0.2, 0.333333, 1)
+border_width_bottom = 5
+border_color = Color(0.101961, 0.133333, 0.231373, 1)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+
+[sub_resource type="Gradient" id="Gradient_ye01y"]
+offsets = PackedFloat32Array(0.157973, 1)
+colors = PackedColorArray(1, 1, 1, 0.0117647, 1, 1, 1, 0.239216)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mn8tb"]
+gradient = SubResource("Gradient_ye01y")
+width = 128
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4ajwt"]
+resource_local_to_scene = true
+shader = ExtResource("2_yk1tt")
+shader_parameter/horizontal_speed = 0.1
+shader_parameter/vertical_speed = 0.1
+shader_parameter/overlay_texture = SubResource("GradientTexture1D_mn8tb")
+
+[sub_resource type="LabelSettings" id="LabelSettings_8cuve"]
+font_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_67a1q"]
+content_margin_left = 15.0
+content_margin_top = 8.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+bg_color = Color(0.760784, 0, 0.776471, 1)
+border_width_bottom = 5
+border_color = Color(0.54902, 0, 0.560784, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(1, 0.262745, 0.784314, 0.14902)
+shadow_size = 27
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ui4te"]
+content_margin_left = 15.0
+content_margin_top = 8.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+bg_color = Color(0.898039, 0, 0.917647, 1)
+border_width_bottom = 5
+border_color = Color(0.631373, 0, 0.643137, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(1, 0.262745, 0.784314, 0.14902)
+shadow_size = 27
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xsgdm"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="TakeSeatButton" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_umbsn")
+
+[node name="OpenedBgLayer" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+anchors_preset = 0
+
+[node name="Button" type="Button" parent="OpenedBgLayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="OpenedSized" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchor_left = 0.281
+anchor_top = 0.279
+anchor_right = 0.71
+anchor_bottom = 0.672
+offset_left = 0.0999837
+offset_top = -0.200011
+offset_right = -3.43323e-05
+offset_bottom = 0.39996
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Box" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Panel" parent="Box"]
+clip_children = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qiwpq")
+
+[node name="Panel" type="Panel" parent="Box/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nmsg5")
+
+[node name="ScrollingBackground" type="TextureRect" parent="Box/Background"]
+material = SubResource("ShaderMaterial_4ajwt")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_lvsx8")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Content" type="MarginContainer" parent="Box"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="NotOpened" type="HBoxContainer" parent="Box/Content"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="Box/Content/NotOpened"]
+custom_minimum_size = Vector2(10, 2.08165e-12)
+layout_mode = 2
+
+[node name="IconImage" type="TextureRect" parent="Box/Content/NotOpened"]
+custom_minimum_size = Vector2(15, 2.08165e-12)
+layout_mode = 2
+texture = ExtResource("2_01cmb")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Box/Content/NotOpened"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Take Seat"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Opened" type="VBoxContainer" parent="Box/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Title" type="MarginContainer" parent="Box/Content/Opened"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="Box/Content/Opened/Title"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Join Game"
+label_settings = SubResource("LabelSettings_8cuve")
+horizontal_alignment = 1
+
+[node name="CloseButton" type="Button" parent="Box/Content/Opened/Title"]
+custom_minimum_size = Vector2(20, 2.08165e-12)
+layout_mode = 2
+size_flags_horizontal = 8
+mouse_default_cursor_shape = 2
+icon = ExtResource("5_eg7rn")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Spacer" type="Control" parent="Box/Content/Opened"]
+custom_minimum_size = Vector2(2.08165e-12, 10)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Box/Content/Opened"]
+layout_mode = 2
+text = "Enterance Amount"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer2" type="Control" parent="Box/Content/Opened"]
+custom_minimum_size = Vector2(2.08165e-12, 10)
+layout_mode = 2
+
+[node name="EnteranceAmountSlider" type="HSlider" parent="Box/Content/Opened"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 100000.0
+
+[node name="Spacer4" type="Control" parent="Box/Content/Opened"]
+custom_minimum_size = Vector2(2.08165e-12, 10)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Box/Content/Opened"]
+layout_mode = 2
+alignment = 1
+
+[node name="EnteranceAmountLabel" type="Label" parent="Box/Content/Opened/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0 XMR"
+
+[node name="Spacer3" type="Control" parent="Box/Content/Opened"]
+custom_minimum_size = Vector2(2.08165e-12, 10)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="EnterButton" type="Button" parent="Box/Content/Opened"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(140, 42)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_67a1q")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ui4te")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_67a1q")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_67a1q")
+theme_override_styles/focus = SubResource("StyleBoxFlat_67a1q")
+text = "GLHF"
+icon = ExtResource("6_n4s2c")
+
+[node name="Button" type="Button" parent="Box"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_xsgdm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xsgdm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xsgdm")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_xsgdm")
+theme_override_styles/focus = SubResource("StyleBoxFlat_xsgdm")
+flat = true
+
+[connection signal="pressed" from="OpenedBgLayer/Button" to="." method="_on_OpenedBgLayer_Button_pressed"]
+[connection signal="pressed" from="Box/Content/Opened/Title/CloseButton" to="." method="_on_CloseButton_pressed"]
+[connection signal="value_changed" from="Box/Content/Opened/EnteranceAmountSlider" to="." method="_on_EnteranceAmountSlider_value_changed"]
+[connection signal="pressed" from="Box/Content/Opened/EnterButton" to="." method="_on_EnterButton_pressed"]
+[connection signal="mouse_entered" from="Box/Button" to="." method="_on_Button_mouse_entered"]
+[connection signal="mouse_exited" from="Box/Button" to="." method="_on_Button_mouse_exited"]
+[connection signal="pressed" from="Box/Button" to="." method="_on_Button_pressed"]

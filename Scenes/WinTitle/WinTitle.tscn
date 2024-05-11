@@ -1,0 +1,165 @@
+[gd_scene load_steps=6 format=3 uid="uid://d05dfnc75im0u"]
+
+[ext_resource type="Script" path="res://Scenes/WinTitle/WinTitle.gd" id="1_qrm0h"]
+[ext_resource type="Texture2D" uid="uid://d20h444wxko53" path="res://Assets/Sprites/Icons/close.png" id="2_wcw5r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e6y83"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2whah"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+anti_aliasing = false
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_he1vc"]
+
+[node name="WinTitle" type="PanelContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 50)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 49.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_e6y83")
+script = ExtResource("1_qrm0h")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+clip_children = 1
+custom_minimum_size = Vector2(2.08165e-12, 50)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2whah")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="CanvasLayer/PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 10)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Spacer" type="Control" parent="CanvasLayer/PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(15, 2.08165e-12)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VersionLabel" type="Label" parent="CanvasLayer/PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Version"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer5" type="Control" parent="CanvasLayer/PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(15, 2.08165e-12)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="LeftInfoLabel" type="Label" parent="CanvasLayer/PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+vertical_alignment = 1
+
+[node name="Spacer2" type="Control" parent="CanvasLayer/PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="TitleLabel" type="Label" parent="CanvasLayer/PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer3" type="Control" parent="CanvasLayer/PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="RightInfoLabel" type="Label" parent="CanvasLayer/PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Spacer6" type="Control" parent="CanvasLayer/PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="PretendingWebLabel" type="Label" parent="CanvasLayer/PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Pretending Web"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Spacer4" type="Control" parent="CanvasLayer/PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 2.08165e-12)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Spacer2" type="Control" parent="CanvasLayer/PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 10)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/PanelContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/normal = SubResource("StyleBoxEmpty_he1vc")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_he1vc")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_he1vc")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_he1vc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_he1vc")
+flat = true
+
+[node name="Spacer3" type="Control" parent="CanvasLayer/PanelContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(15, 2.08165e-12)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="CloseButton" type="TextureButton" parent="CanvasLayer/PanelContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(15, 15)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("2_wcw5r")
+texture_pressed = ExtResource("2_wcw5r")
+texture_hover = ExtResource("2_wcw5r")
+texture_disabled = ExtResource("2_wcw5r")
+texture_focused = ExtResource("2_wcw5r")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Spacer4" type="Control" parent="CanvasLayer/PanelContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(15, 2.08165e-12)
+layout_mode = 2
+mouse_filter = 2
+
+[connection signal="gui_input" from="CanvasLayer/PanelContainer" to="." method="_on_PanelContainer_gui_input"]
+[connection signal="button_down" from="CanvasLayer/PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/Button" to="." method="_on_Button_button_down"]
+[connection signal="button_up" from="CanvasLayer/PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/Button" to="." method="_on_Button_button_up"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/VBoxContainer/HBoxContainer/CloseButton" to="." method="_on_CloseButton_pressed"]

@@ -1,0 +1,95 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbm6v3cx1hsor"]
+
+[ext_resource type="Script" path="res://Scenes/Card/Card.gd" id="1_k6p5f"]
+[ext_resource type="Texture2D" uid="uid://xxchdbbvvnbn" path="res://Assets/Sprites/Kinds/heart.png" id="2_wc87c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sgxqd"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 0.403922)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Card" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 217.0
+offset_bottom = 324.0
+script = ExtResource("1_k6p5f")
+
+[node name="Background" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sgxqd")
+
+[node name="KindImage1" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0645161
+anchor_top = 0.64311
+anchor_right = 0.396313
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(47.806, 50.647)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_wc87c")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="KindImage2" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.617512
+anchor_top = 0.095679
+anchor_right = 0.889401
+anchor_bottom = 0.317901
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_wc87c")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="ValueLabel1" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+anchor_left = 0.0921659
+anchor_top = 0.0246914
+anchor_right = 0.341014
+anchor_bottom = 0.444444
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 85
+text = "A"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ValueLabel2" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+anchor_left = 0.599078
+anchor_top = 0.654321
+anchor_right = 0.820276
+anchor_bottom = 0.941358
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 65
+text = "A"
+metadata/_edit_use_anchors_ = true
