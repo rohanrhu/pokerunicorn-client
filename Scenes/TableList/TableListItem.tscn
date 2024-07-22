@@ -100,11 +100,11 @@ layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 mouse_default_cursor_shape = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_ra8q4")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ra8q4")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ra8q4")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ssfco")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ra8q4")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_ra8q4")
-theme_override_styles/focus = SubResource("StyleBoxFlat_ra8q4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ra8q4")
 text = "Enter"
 
 [node name="Spacer3" type="Control" parent="TableListItem/HBoxContainer"]

@@ -133,6 +133,21 @@ shadow_size = 27
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jg4r4"]
 bg_color = Color(1, 1, 1, 0.203922)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4pir5"]
+content_margin_left = 15.0
+content_margin_top = 8.0
+content_margin_right = 15.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0.490196, 0.964706, 1)
+border_width_bottom = 5
+border_color = Color(0, 0.345098, 0.694118, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+shadow_color = Color(0, 0.298039, 0.65098, 0.486275)
+shadow_size = 27
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4lu2c"]
 content_margin_left = 15.0
 content_margin_top = 8.0
@@ -161,21 +176,6 @@ corner_radius_top_right = 18
 corner_radius_bottom_right = 18
 corner_radius_bottom_left = 18
 shadow_color = Color(0, 0.262745, 0.580392, 0.168627)
-shadow_size = 27
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4pir5"]
-content_margin_left = 15.0
-content_margin_top = 8.0
-content_margin_right = 15.0
-content_margin_bottom = 10.0
-bg_color = Color(0, 0.490196, 0.964706, 1)
-border_width_bottom = 5
-border_color = Color(0, 0.345098, 0.694118, 1)
-corner_radius_top_left = 18
-corner_radius_top_right = 18
-corner_radius_bottom_right = 18
-corner_radius_bottom_left = 18
-shadow_color = Color(0, 0.298039, 0.65098, 0.486275)
 shadow_size = 27
 
 [sub_resource type="Animation" id="Animation_f3yv1"]
@@ -564,9 +564,9 @@ theme_override_constants/separation = 15
 unique_name_in_owner = true
 custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_whjt8")
 theme_override_styles/focus = SubResource("StyleBoxFlat_whjt8")
 theme_override_styles/read_only = SubResource("StyleBoxFlat_mxpjc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_whjt8")
 placeholder_text = "ID Token"
 
 [node name="Icon" type="TextureRect" parent="CanvasLayer/Layer/SubViewportContainer/SubViewport/Box/BgBox/MarginContainer/VBoxContainer/Form/IdTokenInput"]
@@ -586,9 +586,9 @@ stretch_mode = 4
 [node name="PasswordInput" type="LineEdit" parent="CanvasLayer/Layer/SubViewportContainer/SubViewport/Box/BgBox/MarginContainer/VBoxContainer/Form"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_whjt8")
 theme_override_styles/focus = SubResource("StyleBoxFlat_whjt8")
 theme_override_styles/read_only = SubResource("StyleBoxFlat_mxpjc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_whjt8")
 placeholder_text = "Password"
 secret = true
 
@@ -616,11 +616,11 @@ layout_mode = 2
 size_flags_vertical = 0
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 14
-theme_override_styles/normal = SubResource("StyleBoxFlat_rcba4")
+theme_override_styles/focus = SubResource("StyleBoxFlat_rcba4")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_rcba4")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mva7a")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rcba4")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_rcba4")
-theme_override_styles/focus = SubResource("StyleBoxFlat_rcba4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rcba4")
 text = "Login"
 icon = ExtResource("5_fcfbb")
 
@@ -712,11 +712,11 @@ custom_minimum_size = Vector2(2.08165e-12, 42)
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 14
-theme_override_styles/normal = SubResource("StyleBoxFlat_4lu2c")
+theme_override_styles/focus = SubResource("StyleBoxFlat_4pir5")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_4lu2c")
 theme_override_styles/hover = SubResource("StyleBoxFlat_rpixe")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_4lu2c")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_4lu2c")
-theme_override_styles/focus = SubResource("StyleBoxFlat_4pir5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4lu2c")
 text = "Sign Up"
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Layer"]

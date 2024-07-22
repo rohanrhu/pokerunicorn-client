@@ -119,14 +119,14 @@ corner_radius_bottom_left = 18
 shadow_color = Color(1, 0.262745, 0.784314, 0.14902)
 shadow_size = 27
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8k8u7"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3uysg"]
 shader = ExtResource("3_f8xyj")
 shader_parameter/radius_top_left = 10.0
 shader_parameter/radius_top_right = 10.0
 shader_parameter/radius_bottom_left = 10.0
 shader_parameter/radius_bottom_right = 10.0
-shader_parameter/canvas_width = 59.0
-shader_parameter/canvas_height = 59.0
+shader_parameter/canvas_width = null
+shader_parameter/canvas_height = null
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iukjj"]
 content_margin_left = 10.0
@@ -276,11 +276,11 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 mouse_default_cursor_shape = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_66sdj")
+theme_override_styles/focus = SubResource("StyleBoxFlat_66sdj")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_66sdj")
 theme_override_styles/hover = SubResource("StyleBoxFlat_huyy7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_66sdj")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_66sdj")
-theme_override_styles/focus = SubResource("StyleBoxFlat_66sdj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_66sdj")
 text = "Change Avatar"
 
 [node name="Spacer" type="Control" parent="Freeform/Box/Opened/MarginContainer/VBoxContainer"]
@@ -334,11 +334,11 @@ layout_mode = 2
 size_flags_horizontal = 4
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 14
-theme_override_styles/normal = SubResource("StyleBoxFlat_q3g3v")
+theme_override_styles/focus = SubResource("StyleBoxFlat_q3g3v")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_q3g3v")
 theme_override_styles/hover = SubResource("StyleBoxFlat_pfee7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_q3g3v")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_q3g3v")
-theme_override_styles/focus = SubResource("StyleBoxFlat_q3g3v")
+theme_override_styles/normal = SubResource("StyleBoxFlat_q3g3v")
 text = "Save Changes"
 icon = ExtResource("4_flna1")
 
@@ -349,7 +349,7 @@ mouse_filter = 2
 
 [node name="AvatarTextureRect" type="TextureRect" parent="NotOpened"]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_8k8u7")
+material = SubResource("ShaderMaterial_3uysg")
 custom_minimum_size = Vector2(59, 2.08165e-12)
 layout_mode = 2
 texture = ExtResource("4_bs46w")
@@ -405,11 +405,11 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 mouse_default_cursor_shape = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_1ltcc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1ltcc")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_1ltcc")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_1ltcc")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_1ltcc")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_1ltcc")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_1ltcc")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1ltcc")
 flat = true
 metadata/_edit_lock_ = true
 

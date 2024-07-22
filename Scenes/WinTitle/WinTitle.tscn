@@ -129,11 +129,11 @@ layout_mode = 2
 [node name="Button" type="Button" parent="CanvasLayer/PanelContainer/VBoxContainer/HBoxContainer/MarginContainer"]
 layout_mode = 2
 mouse_filter = 1
-theme_override_styles/normal = SubResource("StyleBoxEmpty_he1vc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_he1vc")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_he1vc")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_he1vc")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_he1vc")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_he1vc")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_he1vc")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_he1vc")
 flat = true
 
 [node name="Spacer3" type="Control" parent="CanvasLayer/PanelContainer/VBoxContainer/HBoxContainer"]

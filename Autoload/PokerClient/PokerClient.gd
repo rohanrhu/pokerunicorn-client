@@ -54,7 +54,6 @@ var reconnect_timer: Timer
 
 var host: String
 var port: int
-
 var is_websocket := false
 var is_expect_connection := false
 

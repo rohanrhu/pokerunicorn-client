@@ -593,9 +593,9 @@ theme_override_constants/separation = 15
 unique_name_in_owner = true
 custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_hx42x")
 theme_override_styles/focus = SubResource("StyleBoxFlat_hx42x")
 theme_override_styles/read_only = SubResource("StyleBoxFlat_djucl")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hx42x")
 placeholder_text = "ID Token"
 editable = false
 
@@ -617,9 +617,9 @@ stretch_mode = 4
 unique_name_in_owner = true
 custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_hx42x")
 theme_override_styles/focus = SubResource("StyleBoxFlat_hx42x")
 theme_override_styles/read_only = SubResource("StyleBoxFlat_djucl")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hx42x")
 placeholder_text = "Nickname"
 
 [node name="Icon" type="TextureRect" parent="CanvasLayer/Layer/Box/BgBox/MarginContainer/VBoxContainer/Form/NameInput"]
@@ -639,9 +639,9 @@ stretch_mode = 4
 [node name="PasswordInput" type="LineEdit" parent="CanvasLayer/Layer/Box/BgBox/MarginContainer/VBoxContainer/Form"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_hx42x")
 theme_override_styles/focus = SubResource("StyleBoxFlat_hx42x")
 theme_override_styles/read_only = SubResource("StyleBoxFlat_djucl")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hx42x")
 placeholder_text = "Password"
 secret = true
 
@@ -662,9 +662,9 @@ stretch_mode = 4
 [node name="PasswordAgainInput" type="LineEdit" parent="CanvasLayer/Layer/Box/BgBox/MarginContainer/VBoxContainer/Form"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_hx42x")
 theme_override_styles/focus = SubResource("StyleBoxFlat_hx42x")
 theme_override_styles/read_only = SubResource("StyleBoxFlat_djucl")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hx42x")
 placeholder_text = "Re-type password"
 secret = true
 
@@ -693,11 +693,11 @@ layout_mode = 2
 size_flags_vertical = 0
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 14
-theme_override_styles/normal = SubResource("StyleBoxFlat_kyq14")
+theme_override_styles/focus = SubResource("StyleBoxFlat_kyq14")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_kyq14")
 theme_override_styles/hover = SubResource("StyleBoxFlat_qp0i4")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_kyq14")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_kyq14")
-theme_override_styles/focus = SubResource("StyleBoxFlat_kyq14")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kyq14")
 text = "Sign Up"
 icon = ExtResource("5_xx48y")
 
@@ -789,11 +789,11 @@ layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_colors/font_color = Color(0.901961, 0.517647, 0.933333, 1)
 theme_override_font_sizes/font_size = 14
-theme_override_styles/normal = SubResource("StyleBoxEmpty_74ut5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_74ut5")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_74ut5")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_74ut5")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_74ut5")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_74ut5")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_74ut5")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_74ut5")
 text = "Login"
 flat = true
 
@@ -828,11 +828,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_8ytcn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8ytcn")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8ytcn")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_8ytcn")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_8ytcn")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_8ytcn")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_8ytcn")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8ytcn")
 flat = true
 
 [node name="ConfirmPopup" type="PanelContainer" parent="CanvasLayer/Layer/Confirm"]
@@ -907,11 +907,11 @@ layout_mode = 2
 size_flags_vertical = 0
 mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 14
-theme_override_styles/normal = SubResource("StyleBoxFlat_kyq14")
+theme_override_styles/focus = SubResource("StyleBoxFlat_kyq14")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_kyq14")
 theme_override_styles/hover = SubResource("StyleBoxFlat_qp0i4")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_kyq14")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_kyq14")
-theme_override_styles/focus = SubResource("StyleBoxFlat_kyq14")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kyq14")
 disabled = true
 text = "Sign Up"
 icon = ExtResource("5_xx48y")

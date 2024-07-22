@@ -10,9 +10,9 @@ config_version=5
 
 [application]
 
-config/name="PokerGame"
+config/name="PokerUnicornClient"
 run/main_scene="res://Scenes/Lobby/Lobby.tscn"
-config/features=PackedStringArray("4.2", "Forward Plus")
+config/features=PackedStringArray("4.3", "Forward Plus")
 run/max_fps=30
 config/icon="res://icon.svg"
 
@@ -64,6 +64,10 @@ import/blender/enabled=false
 [gui]
 
 theme/custom="res://Themes/Default.theme"
+
+[network]
+
+tls/certificate_bundle_override="res://ssl/test.crt"
 
 [rendering]
 
