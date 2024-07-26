@@ -128,10 +128,10 @@ func set_balance(p_balance: int):
 	balance = p_balance
 	nBalanceLabel.text = Monero.pico2label(balance)
 	nBetChips.set_value(Monero.pico2xmr(balance))
-	nBetChips.update()
+	await nBetChips.update()
 
 func move_chips_to(to_position: Vector2):
-	nBetChips.call_deferred("move_to", to_position)
+	nBetChips.move_to(to_position)
 
 func update():
 	if is_current:

@@ -131,7 +131,7 @@ _data = {
 "Open": SubResource("Animation_0ahb1")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_m45cv"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_70l75"]
 shader = ExtResource("10_xq1jn")
 shader_parameter/radius_top_left = 10.0
 shader_parameter/radius_top_right = 10.0
@@ -740,7 +740,7 @@ libraries = {
 
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/Content/DevTools"]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_m45cv")
+material = SubResource("ShaderMaterial_70l75")
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0

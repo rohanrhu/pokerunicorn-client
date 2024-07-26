@@ -178,7 +178,7 @@ _data = {
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eue27"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qax1i"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tc70k"]
 shader = ExtResource("3_sg446")
 shader_parameter/radius_top_left = 10.0
 shader_parameter/radius_top_right = 10.0
@@ -380,7 +380,7 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_eue27")
 
 [node name="AvatarTextureRect" type="TextureRect" parent="HBoxContainer/Content/Box/HBoxContainer/Avatar"]
 z_index = 1
-material = SubResource("ShaderMaterial_qax1i")
+material = SubResource("ShaderMaterial_tc70k")
 custom_minimum_size = Vector2(52, 2.08165e-12)
 layout_mode = 2
 mouse_filter = 2

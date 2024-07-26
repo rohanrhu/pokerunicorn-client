@@ -22,6 +22,12 @@ func _init():
 	socket.inbound_buffer_size = 2000000
 	socket.max_queued_packets = 4096
 
+func connect_to_url(p_url: String) -> Error:
+	var err := socket.connect_to_url(p_url, TLSOptions.client_unsafe())
+	if err != OK:
+		printerr(err)
+	return err
+
 func poll() -> void:
 	print("ws.poll()")
 	
@@ -41,12 +47,11 @@ func poll() -> void:
 		is_connected_to_server = false
 		close_code = socket.get_close_code()
 		close_reason = socket.get_close_reason()
-
-func connect_to_url(p_url: String) -> Error:
-	var err := socket.connect_to_url(p_url, TLSOptions.client_unsafe())
-	if err != OK:
-		printerr(err)
-	return err
+	
+	if not is_connected_to_server:
+		var error = socket.get_packet_error()
+		if error != 0:
+			print("WS Packet Error: ", error)
 
 func get_bytes(size: int) -> PackedByteArray:
 	var poll_time = 0
@@ -60,16 +65,10 @@ func get_bytes(size: int) -> PackedByteArray:
 		
 		socket.poll()
 		
-		if socket.get_ready_state() != WebSocketPeer.STATE_OPEN:
-			is_connected_to_server = false
-			
-			var error = socket.get_packet_error()
-			if error != 0:
-				print("WS Packet Error: ", error)
-			
+		if not is_connected_to_server:
 			return []
 		
-		if socket.get_available_packet_count():
+		if socket.get_available_packet_count() > 0:
 			var bytes := socket.get_packet()
 			buffer.append_array(bytes)
 		

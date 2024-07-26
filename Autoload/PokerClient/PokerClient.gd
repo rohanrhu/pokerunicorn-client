@@ -92,21 +92,21 @@ func _listen_thread_f__ws() -> void:
 		
 		if (ws.socket.get_ready_state() == WebSocketPeer.STATE_CLOSED) || (is_connected_to_server && !ws.is_connected_to_server):
 			is_connected_to_server = false
-			mutex.unlock()
 			call_deferred("_on_disconnected")
+			mutex.unlock()
 			break
 		
 		if !is_connected_to_server && ws.is_connected_to_server:
 			is_connected_to_server = true
-			mutex.unlock()
 			call_deferred("_on_connected")
+			mutex.unlock()
 			poll_time = Time.get_ticks_msec()
 			continue
 		
 		if is_connected_to_server && !ws.is_connected_to_server:
 			is_connected_to_server = false
-			mutex.unlock()
 			call_deferred("_on_disconnected")
+			mutex.unlock()
 			break
 		
 		if !is_connected_to_server:
@@ -157,9 +157,9 @@ func _listen_thread_f() -> void:
 			is_tls_handshaked = false
 			is_connected_to_server = false
 			
-			mutex.unlock()
-			
 			call_deferred("_on_disconnected")
+			
+			mutex.unlock()
 			
 			break
 		elif !is_tcp_connected and socket.get_status() == StreamPeerTCP.STATUS_CONNECTED:
@@ -175,9 +175,9 @@ func _listen_thread_f() -> void:
 				tls.disconnect_from_stream()
 				socket.disconnect_from_host()
 				
-				mutex.unlock()
-				
 				call_deferred("_on_disconnected")
+				
+				mutex.unlock()
 				
 				break
 			

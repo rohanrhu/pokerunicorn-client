@@ -191,7 +191,7 @@ func move_player_chips_to(account_id: int, to_position: Vector2):
 		if player.state_player.id != account_id:
 			continue
 		
-		player.nPlayer.call_deferred("move_chips_to", to_position)
+		player.nPlayer.move_chips_to(to_position)
 
 func get_player_by_account_id(account_id: int) -> PlayersCirclePlayer:
 	for player in players:

@@ -255,7 +255,7 @@ func _on_poker_state(p_poker_state: TPacket.TPokerState):
 
 	nPotLabel.text = "Pot: " + Monero.pico2label(poker_state.pot_amount)
 	nPotChips.set_value(Monero.pico2xmr(poker_state.pot_amount))
-	nPotChips.update()
+	await nPotChips.update()
 
 	nPlayersCircle.set_player_position(poker_state.position)
 	nPlayersCircle.set_poker_state(poker_state)
@@ -333,7 +333,7 @@ func _on_poker_action_reflection(poker_action_reflection: TPacket.TPokerActionRe
 	print("PokerActionReflection.AccountId: ", poker_action_reflection.account_id)
 
 	if (poker_action_reflection.amount > 0) && (poker_action_reflection.account_id > 0):
-		nPlayersCircle.call_deferred("move_player_chips_to", poker_action_reflection.account_id, nPotChips.global_position)
+		nPlayersCircle.move_player_chips_to(poker_action_reflection.account_id, nPotChips.global_position)
 	
 	if poker_action_reflection.action_kind <= TPoker.ACTION_KIND.BIG_BLIND:
 		%AudioPlayerCheck.play()

@@ -119,7 +119,7 @@ corner_radius_bottom_left = 18
 shadow_color = Color(1, 0.262745, 0.784314, 0.14902)
 shadow_size = 27
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3uysg"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c2vmu"]
 shader = ExtResource("3_f8xyj")
 shader_parameter/radius_top_left = 10.0
 shader_parameter/radius_top_right = 10.0
@@ -349,7 +349,7 @@ mouse_filter = 2
 
 [node name="AvatarTextureRect" type="TextureRect" parent="NotOpened"]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_3uysg")
+material = SubResource("ShaderMaterial_c2vmu")
 custom_minimum_size = Vector2(59, 2.08165e-12)
 layout_mode = 2
 texture = ExtResource("4_bs46w")

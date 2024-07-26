@@ -50,9 +50,6 @@ func update():
 		nStacks.add_child(nStack)
 		stacks.append(nStack)
 
-		if !nStack.is_node_ready():
-			await nStack.ready
-
 		nStack.set_chip_values(chip_values)
 		nStack.set_number(piece[0])
 		nStack.set_value(piece[1])
@@ -80,22 +77,24 @@ func resolve_pieces() -> Array:
 	return pieces
 
 func clear():
-	stacks.clear()
+	for i in range(stacks.size()):
+		stacks[i].queue_free()
 	
-	for i in range(nStacks.get_child_count()):
-		nStacks.get_child(i).queue_free()
+	stacks.clear()
 
 func move_to(to_position: Vector2):
 	var tween := get_tree().create_tween()
 	
-	tween.tween_callback(_on_Tween_callback)
-	tween.finished.connect(_on_Tween_finished)
-
 	var _stacks = [];
 
 	for i in range(stacks.size()):
 		var nStack: ChipsStack = stacks[i]
-		var nStackToAnim: ChipsStack = nStack.duplicate()
+		if nStack.is_queued_for_deletion() or not (nStack.is_node_ready() && nStack.is_inside_tree()):
+			breakpoint
+		nStack.cancel_free()
+		for _node in nStack.get_children():
+			_node.cancel_free()
+		var nStackToAnim: ChipsStack = nStack.duplicate(DUPLICATE_SCRIPTS)
 		_stacks.append(nStackToAnim)
 		add_child(nStackToAnim)
 		nStackToAnim.global_position = nStack.global_position
@@ -107,11 +106,5 @@ func move_to(to_position: Vector2):
 	await tween.finished
 
 	for i in range(_stacks.size()):
-		if (_stacks[i] != null):
+		if _stacks[i] != null:
 			_stacks[i].queue_free()
-
-func _on_Tween_finished():
-	pass
-
-func _on_Tween_callback():
-	pass
