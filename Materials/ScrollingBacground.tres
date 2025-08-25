@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://b4wv5lw4jqvwj"]
 
-[ext_resource type="Shader" path="res://Shaders/ScrollingBackground.gdshader" id="1_0flm7"]
+[ext_resource type="Shader" uid="uid://bwsu1e34vexri" path="res://Shaders/ScrollingBackground.gdshader" id="1_0flm7"]
 
 [sub_resource type="Gradient" id="Gradient_ubbb7"]
 offsets = PackedFloat32Array(0, 0.0417288)

@@ -1,13 +1,13 @@
 [gd_scene load_steps=30 format=3 uid="uid://dfqfnpbjl24gf"]
 
-[ext_resource type="Script" path="res://Scenes/PokerPlayer/PokerPlayer.gd" id="1_6fwuy"]
+[ext_resource type="Script" uid="uid://b80rqa4gr10dn" path="res://Scenes/PokerPlayer/PokerPlayer.gd" id="1_6fwuy"]
 [ext_resource type="Texture2D" uid="uid://b5gg5inu66mht" path="res://Assets/Sprites/card-back.png" id="1_mwma7"]
 [ext_resource type="PackedScene" uid="uid://dbm6v3cx1hsor" path="res://Scenes/Card/Card.tscn" id="2_mlfij"]
-[ext_resource type="Shader" path="res://Nodes/BorderRadius/BorderRadius.gdshader" id="3_sg446"]
+[ext_resource type="Shader" uid="uid://dct2y5dqv5rx0" path="res://Nodes/BorderRadius/BorderRadius.gdshader" id="3_sg446"]
 [ext_resource type="Texture2D" uid="uid://dnwxjherwb37h" path="res://Assets/Sprites/Avatars/1.png" id="4_xkrik"]
 [ext_resource type="PackedScene" uid="uid://peke3pgx2hc8" path="res://Scenes/ChipStack/Chips.tscn" id="5_eg0o2"]
-[ext_resource type="Shader" path="res://Shaders/Teleport.gdshader" id="8_vw2xe"]
-[ext_resource type="Script" path="res://Nodes/BorderRadius/BorderRadius.gd" id="8_yls8u"]
+[ext_resource type="Shader" uid="uid://ccicldogpvknu" path="res://Shaders/Teleport.gdshader" id="8_vw2xe"]
+[ext_resource type="Script" uid="uid://jmy225q8v3er" path="res://Nodes/BorderRadius/BorderRadius.gd" id="8_yls8u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ydvl7"]
 bg_color = Color(0.141176, 0.141176, 0.141176, 1)
@@ -96,9 +96,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qcj20"]
 _data = {
-"Blur": SubResource("Animation_eipmw"),
-"Flash": SubResource("Animation_eivld"),
-"Hover": SubResource("Animation_qg511")
+&"Blur": SubResource("Animation_eipmw"),
+&"Flash": SubResource("Animation_eivld"),
+&"Hover": SubResource("Animation_qg511")
 }
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lv76a"]
@@ -116,8 +116,8 @@ shader_parameter/radius_top_left = 10.0
 shader_parameter/radius_top_right = 10.0
 shader_parameter/radius_bottom_left = 10.0
 shader_parameter/radius_bottom_right = 10.0
-shader_parameter/canvas_width = null
-shader_parameter/canvas_height = null
+shader_parameter/canvas_width = 0.0
+shader_parameter/canvas_height = 0.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qf5yo"]
 bg_color = Color(0.443137, 0.0745098, 0.329412, 1)
@@ -172,8 +172,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h0nn8"]
 _data = {
-"Current": SubResource("Animation_t8drv"),
-"NotCurrent": SubResource("Animation_ax0og")
+&"Current": SubResource("Animation_t8drv"),
+&"NotCurrent": SubResource("Animation_ax0og")
 }
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eue27"]
@@ -184,8 +184,8 @@ shader_parameter/radius_top_left = 10.0
 shader_parameter/radius_top_right = 10.0
 shader_parameter/radius_bottom_left = 10.0
 shader_parameter/radius_bottom_right = 10.0
-shader_parameter/canvas_width = null
-shader_parameter/canvas_height = null
+shader_parameter/canvas_width = 0.0
+shader_parameter/canvas_height = 0.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rna3n"]
 content_margin_left = 10.0

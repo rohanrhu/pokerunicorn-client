@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://btjjacareyevl"]
 
-[ext_resource type="Script" path="res://Scenes/WatchBoxes/WatchBox.gd" id="1_kgbo0"]
+[ext_resource type="Script" uid="uid://btkdl1aepqsqo" path="res://Scenes/WatchBoxes/WatchBox.gd" id="1_kgbo0"]
 [ext_resource type="Material" uid="uid://i4ccld6xbac0" path="res://Materials/ScrollingBacgroundReversed.tres" id="2_5snvp"]
 [ext_resource type="Texture2D" uid="uid://b2q06rg3abrxr" path="res://Assets/Sprites/poker-icons-bg.png" id="3_c5jqy"]
 [ext_resource type="PackedScene" uid="uid://desusls6t8l2r" path="res://Nodes/Spinner/Spinner.tscn" id="3_jrf36"]
@@ -15,7 +15,7 @@ step = 0.025
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c8svq"]
 _data = {
-"Idle": SubResource("Animation_jepob")
+&"Idle": SubResource("Animation_jepob")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_evwtj"]

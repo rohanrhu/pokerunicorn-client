@@ -1,8 +1,8 @@
 [gd_scene load_steps=16 format=3 uid="uid://cad1et6rl45p2"]
 
-[ext_resource type="Script" path="res://Scenes/PlayersCircle/TakeSeatButton.gd" id="1_umbsn"]
+[ext_resource type="Script" uid="uid://cvwpd6ov2xysl" path="res://Scenes/PlayersCircle/TakeSeatButton.gd" id="1_umbsn"]
 [ext_resource type="Texture2D" uid="uid://b1lhuuylei2bv" path="res://Assets/Sprites/Icons/play.png" id="2_01cmb"]
-[ext_resource type="Shader" path="res://Shaders/ScrollingBackground.gdshader" id="2_yk1tt"]
+[ext_resource type="Shader" uid="uid://bwsu1e34vexri" path="res://Shaders/ScrollingBackground.gdshader" id="2_yk1tt"]
 [ext_resource type="Texture2D" uid="uid://b2q06rg3abrxr" path="res://Assets/Sprites/poker-icons-bg.png" id="3_lvsx8"]
 [ext_resource type="Texture2D" uid="uid://d20h444wxko53" path="res://Assets/Sprites/Icons/close.png" id="5_eg7rn"]
 [ext_resource type="Texture2D" uid="uid://bbdhxlkmfbh18" path="res://Assets/Sprites/Icons/right.png" id="6_n4s2c"]

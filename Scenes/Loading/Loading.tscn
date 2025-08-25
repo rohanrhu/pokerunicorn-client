@@ -1,8 +1,8 @@
 [gd_scene load_steps=13 format=3 uid="uid://ctb3bvpw64yxv"]
 
-[ext_resource type="Script" path="res://Scenes/Loading/Loading.gd" id="1_ikwc6"]
-[ext_resource type="Script" path="res://Nodes/BorderRadius/BorderRadius.gd" id="4_4eijs"]
-[ext_resource type="Shader" path="res://Nodes/BorderRadius/BorderRadius.gdshader" id="4_fqp6q"]
+[ext_resource type="Script" uid="uid://bbspkjvpbwyx0" path="res://Scenes/Loading/Loading.gd" id="1_ikwc6"]
+[ext_resource type="Script" uid="uid://jmy225q8v3er" path="res://Nodes/BorderRadius/BorderRadius.gd" id="4_4eijs"]
+[ext_resource type="Shader" uid="uid://dct2y5dqv5rx0" path="res://Nodes/BorderRadius/BorderRadius.gdshader" id="4_fqp6q"]
 [ext_resource type="Texture2D" uid="uid://bq463g3unq07e" path="res://Assets/Sprites/chip.png" id="4_rlthj"]
 
 [sub_resource type="Animation" id="Animation_iyb8i"]
@@ -76,8 +76,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yc06u"]
 _data = {
-"Bounce": SubResource("Animation_iyb8i"),
-"RESET": SubResource("Animation_ne2ft")
+&"Bounce": SubResource("Animation_iyb8i"),
+&"RESET": SubResource("Animation_ne2ft")
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k766c"]

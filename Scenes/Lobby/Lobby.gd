@@ -6,6 +6,8 @@ class_name Lobby
 @onready var nWatchBoxes: WatchBoxes = %WatchBoxes
 @onready var nGetAccountTimer: Timer = %GetAccountTimer
 
+var auth_token: String = ""
+
 func _ready() -> void:
 	print("Meowwww")
 	
@@ -16,6 +18,7 @@ func _ready() -> void:
 	var server_port = Arg.get_arg("--server-port", Config.SERVER_PORT)
 	
 	APokerClient.connected.connect(_on_connected)
+	APokerClient.disconnected.connect(_on_disconnected)
 	APokerClient.server_info.connect(_on_server_info)
 	APokerClient.login_res.connect(_on_login_res)
 	APokerClient.signup_res.connect(_on_signup_res)
@@ -42,17 +45,25 @@ func fetch_account() -> void:
 func _on_connected():
 	APokerClient.send_meow()
 
+func _on_disconnected():
+	pass
+
 func _on_server_info(server_info: TPacket.TServerInfo):
 	var label_str = "Server: "
 	label_str += server_info.version + "." + str(server_info.build_number)
 	label_str += " [" + server_info.revision + "] (" + server_info.compiler + ")"
 	%ServerInfoLabel.text = label_str
+	
+	if not auth_token.is_empty():
+		APokerClient.send_auth_session(auth_token)
 
 func _on_login_res(login_res: TPacket.TLoginRes):
 	if !login_res.is_ok:
 		return
 	if !login_res.is_logined:
 		return
+	
+	auth_token = login_res.auth_token
 	
 	nUserBox.set_account(login_res.account)
 	await get_tree().create_timer(0.4).timeout
@@ -65,6 +76,8 @@ func _on_signup_res(signup_res: TPacket.TSignupRes):
 		return
 	if !signup_res.is_logined:
 		return
+	
+	auth_token = signup_res.auth_token
 	
 	nUserBox.set_account(signup_res.account)
 	await get_tree().create_timer(0.4).timeout
@@ -94,3 +107,7 @@ func _on_JoinTableList_refreshing(offset: int, length: int) -> void:
 
 func _on_GetAccountTimer_timeout():
 	fetch_account()
+
+func _on_DisconnectButton_pressed():
+	APokerClient.ws.is_connected_to_server = false
+	APokerClient.ws.socket.close()

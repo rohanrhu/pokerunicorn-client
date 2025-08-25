@@ -1,6 +1,6 @@
 [gd_scene load_steps=51 format=3 uid="uid://gtyuay7gnof8"]
 
-[ext_resource type="Script" path="res://Scenes/Poker/Poker.gd" id="1_dwubg"]
+[ext_resource type="Script" uid="uid://dpspkihveaxvd" path="res://Scenes/Poker/Poker.gd" id="1_dwubg"]
 [ext_resource type="AudioStream" uid="uid://chx2wwk4dby0b" path="res://Assets/poker-hand.wav" id="3_b85mf"]
 [ext_resource type="PackedScene" uid="uid://cj1ktgyxnsxby" path="res://Scenes/PlayersCircle/PlayersCircle.tscn" id="3_jrrjv"]
 [ext_resource type="AudioStream" uid="uid://cpm4is1trmily" path="res://Assets/Sounds/poker-deal.wav" id="3_t6uq7"]
@@ -11,13 +11,13 @@
 [ext_resource type="PackedScene" uid="uid://peke3pgx2hc8" path="res://Scenes/ChipStack/Chips.tscn" id="6_6unl3"]
 [ext_resource type="AudioStream" uid="uid://bd62v4l8864lw" path="res://Assets/poker-check.mp3" id="6_rmiyf"]
 [ext_resource type="AudioStream" uid="uid://b1wdmei2ol0u3" path="res://Assets/poker-winner.mp3" id="7_61608"]
-[ext_resource type="Shader" path="res://Nodes/BorderRadius/BorderRadius.gdshader" id="10_xq1jn"]
-[ext_resource type="Script" path="res://Nodes/BorderRadius/BorderRadius.gd" id="11_ho788"]
+[ext_resource type="Shader" uid="uid://dct2y5dqv5rx0" path="res://Nodes/BorderRadius/BorderRadius.gdshader" id="10_xq1jn"]
+[ext_resource type="Script" uid="uid://jmy225q8v3er" path="res://Nodes/BorderRadius/BorderRadius.gd" id="11_ho788"]
 [ext_resource type="Texture2D" uid="uid://b2q06rg3abrxr" path="res://Assets/Sprites/poker-icons-bg.png" id="12_0ovmv"]
-[ext_resource type="Shader" path="res://Shaders/Teleport.gdshader" id="12_jmvo0"]
+[ext_resource type="Shader" uid="uid://ccicldogpvknu" path="res://Shaders/Teleport.gdshader" id="12_jmvo0"]
 [ext_resource type="PackedScene" uid="uid://d05dfnc75im0u" path="res://Scenes/WinTitle/WinTitle.tscn" id="13_65evv"]
 [ext_resource type="Material" uid="uid://b4wv5lw4jqvwj" path="res://Materials/ScrollingBacground.tres" id="14_41a2b"]
-[ext_resource type="Shader" path="res://Shaders/ScrollingBackground.gdshader" id="16_u0ipu"]
+[ext_resource type="Shader" uid="uid://bwsu1e34vexri" path="res://Shaders/ScrollingBackground.gdshader" id="16_u0ipu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aqvrc"]
 content_margin_left = 5.0
@@ -127,18 +127,18 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5qbjm"]
 _data = {
-"Close": SubResource("Animation_ihn2y"),
-"Open": SubResource("Animation_0ahb1")
+&"Close": SubResource("Animation_ihn2y"),
+&"Open": SubResource("Animation_0ahb1")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_70l75"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wctlw"]
 shader = ExtResource("10_xq1jn")
 shader_parameter/radius_top_left = 10.0
 shader_parameter/radius_top_right = 10.0
 shader_parameter/radius_bottom_left = 10.0
 shader_parameter/radius_bottom_right = 10.0
-shader_parameter/canvas_width = null
-shader_parameter/canvas_height = null
+shader_parameter/canvas_width = 483.0
+shader_parameter/canvas_height = 316.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wm10q"]
 content_margin_left = 10.0
@@ -302,8 +302,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_14pn0"]
 _data = {
-"Appear": SubResource("Animation_3t8es"),
-"Disappear": SubResource("Animation_luk21")
+&"Appear": SubResource("Animation_3t8es"),
+&"Disappear": SubResource("Animation_luk21")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dqfmr"]
@@ -397,8 +397,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n6bx4"]
 _data = {
-"Appear": SubResource("Animation_noa0y"),
-"Disappear": SubResource("Animation_aecrp")
+&"Appear": SubResource("Animation_noa0y"),
+&"Disappear": SubResource("Animation_aecrp")
 }
 
 [node name="Poker" type="Control"]
@@ -735,12 +735,12 @@ mouse_filter = 2
 [node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer/Content/DevTools"]
 root_node = NodePath("../PanelContainer")
 libraries = {
-"": SubResource("AnimationLibrary_5qbjm")
+&"": SubResource("AnimationLibrary_5qbjm")
 }
 
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/Content/DevTools"]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_70l75")
+material = SubResource("ShaderMaterial_wctlw")
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -917,7 +917,7 @@ vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Starting"]
 libraries = {
-"": SubResource("AnimationLibrary_14pn0")
+&"": SubResource("AnimationLibrary_14pn0")
 }
 
 [node name="YouWon" type="Control" parent="."]
@@ -988,7 +988,7 @@ vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="YouWon"]
 libraries = {
-"": SubResource("AnimationLibrary_n6bx4")
+&"": SubResource("AnimationLibrary_n6bx4")
 }
 
 [connection signal="quitting" from="VBoxContainer/WinTitle" to="." method="_on_WinTitle_quitting"]

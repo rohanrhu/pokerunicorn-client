@@ -26,19 +26,14 @@
             "name": "Attach",
             "type": "coreclr",
             "request": "attach",
-            "preLaunchTask": "build",
             "suppressMultipleSessionWarning": true
         },
         {
             "name": "Debug (Game Process)",
-            "type": "coreclr",
+            "type": "godot",
             "request": "launch",
-            "preLaunchTask": "build",
-            "program": "/Applications/Godot_mono.app/Contents/MacOS/Godot",
-            "args": ["--test-auto-join"],
-            "cwd": "${workspaceFolder}",
-            "stopAtEntry": false,
-            "suppressMultipleSessionWarning": true
+            "suppressMultipleSessionWarning": true,
+            "additional_options": "--server-address localhost"
         },
         {
             "name": "Godot: Debug",
@@ -47,7 +42,6 @@
             "address": "tcp://127.0.0.1",
             "port": 6007,
             "request": "launch",
-            // "preLaunchTask": "build",
             "osx": {
                 "internalConsoleOptions": "openOnSessionStart"
             },
@@ -58,37 +52,31 @@
         {
             "name": "Debug Two Clients",
             "configurations": ["Debug (Game Process)", "Debug (Game Process)"],
-            "preLaunchTask": "build",
             "stopAll": true
         },
         {
             "name": "Debug Three Clients",
             "configurations": ["Debug (Game Process)", "Debug (Game Process)", "Debug (Game Process)"],
-            "preLaunchTask": "build",
             "stopAll": true
         },
         {
             "name": "Debug Four Clients",
             "configurations": ["Debug (Game Process)", "Debug (Game Process)", "Debug (Game Process)", "Debug (Game Process)"],
-            "preLaunchTask": "build",
             "stopAll": true
         },
         {
             "name": "Godot: Debug Two Clients",
             "configurations": ["Godot: Debug", "Godot: Debug"],
-            // "preLaunchTask": "build",
             "stopAll": true
         },
         {
             "name": "Godot: Debug Three Clients",
             "configurations": ["Godot: Debug", "Godot: Debug", "Godot: Debug"],
-            // "preLaunchTask": "build",
             "stopAll": true
         },
         {
             "name": "Godot: Debug Four Clients",
             "configurations": ["Godot: Debug", "Godot: Debug", "Godot: Debug", "Godot: Debug"],
-            // "preLaunchTask": "build",
             "stopAll": true
         }
     ]

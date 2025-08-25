@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b743ejaumaoia"]
 
-[ext_resource type="Script" path="res://Scenes/WatchBoxes/WatchBoxes.gd" id="1_dtqrd"]
+[ext_resource type="Script" uid="uid://dr7t3ogmne7us" path="res://Scenes/WatchBoxes/WatchBoxes.gd" id="1_dtqrd"]
 [ext_resource type="PackedScene" uid="uid://btjjacareyevl" path="res://Scenes/WatchBoxes/WatchBox.tscn" id="1_nn4er"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w75gn"]

@@ -12,6 +12,7 @@ signal pong
 signal server_info(server_info: TPacket.TServerInfo)
 signal login_res(login_res: TPacket.TLoginRes)
 signal signup_res(signup_res: TPacket.TSignupRes)
+signal auth_session_res(auth_session: TPacket.TAuthSessionRes)
 signal account(account: TPacket.TAccount)
 signal enter_res(enter_res: TPacket.TEnterRes)
 signal leave_res(leave_res: TPacket.TLeaveRes)
@@ -216,6 +217,8 @@ func _handle_opcode(opcode: int) -> void:
 			_receive_login_res()
 		TPacket.OPCODE.SIGNUP_RES:
 			_receive_signup_res()
+		TPacket.OPCODE.AUTH_SESSION_RES:
+			_receive_auth_session_res()
 		TPacket.OPCODE.ACCOUNT:
 			_receive_account()
 		TPacket.OPCODE.ENTER_RES:
@@ -360,6 +363,20 @@ func send_signup(id_token: String, password: String, name: String, avatar: Packe
 	
 	if avatar_size > 0:
 		stream.put_data(avatar_bytes)
+	
+	end_put()
+
+func send_auth_session(auth_token: String) -> void:
+	print("Sending AUTH_SESSION....")
+	
+	var auth_token_bytes := auth_token.to_ascii_buffer()
+	
+	begin_put()
+	
+	send_header(TPacket.OPCODE.AUTH_SESSION)
+	
+	stream.put_u16(auth_token_bytes.size())
+	stream.put_data(auth_token_bytes)
 	
 	end_put()
 
@@ -523,6 +540,7 @@ func _receive_login_res() -> void:
 	var _login_res = TPacket.TLoginRes.new()
 	_login_res.is_ok = bool(stream.get_u8())
 	_login_res.is_logined = bool(stream.get_u8())
+	var auth_token_length = stream.get_u16()
 	
 	if _login_res.is_ok && _login_res.is_logined:
 		var xmr_deposit_address_length = stream.get_u16()
@@ -551,6 +569,9 @@ func _receive_login_res() -> void:
 		print("_login_res.account.name: ", _login_res.account.name)
 		if _login_res.account.avatar:
 			print("_login_res.account.avatar: ", _login_res.account.avatar.data.size())
+		
+		if auth_token_length > 0:
+			_login_res.auth_token = PackedByteArray(stream.get_data(auth_token_length)[1]).get_string_from_ascii()
 	
 	call_deferred("emit_signal", "login_res", _login_res)
 
@@ -561,6 +582,7 @@ func _receive_signup_res() -> void:
 	_signup_res.is_ok = bool(stream.get_u8())
 	_signup_res.is_logined = bool(stream.get_u8())
 	_signup_res.status = stream.get_u16()
+	var auth_token_length = stream.get_u16()
 	
 	_signup_res.account = null
 
@@ -588,8 +610,48 @@ func _receive_signup_res() -> void:
 		print("_signup_res.account.id_token: ", _signup_res.account.id_token)
 		print("_signup_res.account.name: ", _signup_res.account.name)
 		print("_signup_res.account.avatar: ", _signup_res.account.avatar)
+		
+		if auth_token_length > 0:
+			_signup_res.auth_token = PackedByteArray(stream.get_data(auth_token_length)[1]).get_string_from_ascii()
 	
 	call_deferred("emit_signal", "signup_res", _signup_res)
+
+func _receive_auth_session_res() -> void:
+	print("Receiving AUTH_SESSION_RES....")
+		
+	var _auth_session_res = TPacket.TAuthSessionRes.new()
+	_auth_session_res.is_ok = bool(stream.get_u8())
+	_auth_session_res.is_logined = bool(stream.get_u8())
+	
+	if _auth_session_res.is_ok && _auth_session_res.is_logined:
+		var xmr_deposit_address_length = stream.get_u16()
+		var id_token_length = stream.get_u16()
+		var name_length = stream.get_u16()
+		var avatar_length = stream.get_u32()
+		
+		_auth_session_res.account = TPacket.TAccount.new()
+		_auth_session_res.account.id = stream.get_u64()
+		_auth_session_res.account.balance = stream.get_u64()
+		_auth_session_res.account.xmr_deposit_address = PackedByteArray(stream.get_data(xmr_deposit_address_length)[1]).get_string_from_ascii()
+		_auth_session_res.account.id_token = PackedByteArray(stream.get_data(id_token_length)[1]).get_string_from_ascii()
+		_auth_session_res.account.name = PackedByteArray(stream.get_data(name_length)[1]).get_string_from_ascii()
+		if avatar_length > 0:
+			_auth_session_res.account.avatar = TPacket.TAvatar.new()
+			var avatar_result = stream.get_data(avatar_length)
+			var avatar_data: PackedByteArray = avatar_result[1]
+			_auth_session_res.account.avatar.mime = TPacket.TMime.from_type(avatar_data.decode_u8(0))
+			_auth_session_res.account.avatar.data = PackedByteArray(avatar_data.slice(1))
+		else:
+			_auth_session_res.account.avatar = null
+		
+		print("_auth_session_res.account.id: ", _auth_session_res.account.id)
+		print("_auth_session_res.account.balance: ", _auth_session_res.account.balance)
+		print("_auth_session_res.account.id_token: ", _auth_session_res.account.id_token)
+		print("_auth_session_res.account.name: ", _auth_session_res.account.name)
+		if _auth_session_res.account.avatar:
+			print("_login_res.account.avatar: ", _auth_session_res.account.avatar.data.size())
+	
+	call_deferred("emit_signal", "auth_session_res", _auth_session_res)
 
 func _receive_account() -> void:
 	print("Receiving ACCOUNT....")

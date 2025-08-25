@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://cvp3luskh7qxf"]
 
-[ext_resource type="Script" path="res://Autoload/PokerClient/PokerClient.gd" id="1_iy0j0"]
-[ext_resource type="Shader" path="res://Shaders/ScrollingBackground.gdshader" id="2_cp1vk"]
+[ext_resource type="Script" uid="uid://nyrktya5osdk" path="res://Autoload/PokerClient/PokerClient.gd" id="1_iy0j0"]
+[ext_resource type="Shader" uid="uid://bwsu1e34vexri" path="res://Shaders/ScrollingBackground.gdshader" id="2_cp1vk"]
 [ext_resource type="PackedScene" uid="uid://desusls6t8l2r" path="res://Nodes/Spinner/Spinner.tscn" id="2_h0wbu"]
 [ext_resource type="Texture2D" uid="uid://b2q06rg3abrxr" path="res://Assets/Sprites/poker-icons-bg.png" id="3_f36wx"]
 

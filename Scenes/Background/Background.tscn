@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dipe3pkrjei27"]
 
-[ext_resource type="Script" path="res://Scenes/Background/Background.gd" id="1_5a7m7"]
+[ext_resource type="Script" uid="uid://byqd61a0as0i7" path="res://Scenes/Background/Background.gd" id="1_5a7m7"]
 [ext_resource type="Texture2D" uid="uid://b2q06rg3abrxr" path="res://Assets/Sprites/poker-icons-bg.png" id="2_jqm30"]
 [ext_resource type="Material" uid="uid://b4wv5lw4jqvwj" path="res://Materials/ScrollingBacground.tres" id="2_oh7r5"]
 

@@ -30,18 +30,18 @@ float noise(vec2 uv) {
 
 void fragment() {
 	float noise = noise(UV * noise_desnity) * UV.y;
-	
+
 	float d1 = step(progress, noise);
 	float d2 = step(progress - beam_size, noise);
-	
+
 	vec3 beam = vec3(d2 - d1) * color.rgb;
-	
+
 	vec4 tex = texture(screen_texture, SCREEN_UV).rgba;
-	
+
 	if (is_screen_reading) {
 		tex.rgb += beam;
 		tex.a *= d2;
-		
+
 		COLOR.rgba = tex.rgba;
 	} else {
 		COLOR.rgb += beam;

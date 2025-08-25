@@ -1,8 +1,8 @@
 [gd_scene load_steps=51 format=3 uid="uid://cgo0ianoaxvph"]
 
-[ext_resource type="Script" path="res://Autoload/RegisterDialog/RegisterDialog.gd" id="1_i7agj"]
-[ext_resource type="Shader" path="res://Shaders/Teleport.gdshader" id="2_eubmd"]
-[ext_resource type="Shader" path="res://Shaders/ScrollingBackground.gdshader" id="3_8xvgr"]
+[ext_resource type="Script" uid="uid://b82cbvjjw6s86" path="res://Autoload/RegisterDialog/RegisterDialog.gd" id="1_i7agj"]
+[ext_resource type="Shader" uid="uid://ccicldogpvknu" path="res://Shaders/Teleport.gdshader" id="2_eubmd"]
+[ext_resource type="Shader" uid="uid://bwsu1e34vexri" path="res://Shaders/ScrollingBackground.gdshader" id="3_8xvgr"]
 [ext_resource type="Material" uid="uid://b4wv5lw4jqvwj" path="res://Materials/ScrollingBacground.tres" id="3_uvmme"]
 [ext_resource type="Texture2D" uid="uid://difpu4nof0f6d" path="res://Assets/Sprites/Icons/email.png" id="4_8ehst"]
 [ext_resource type="Texture2D" uid="uid://b2q06rg3abrxr" path="res://Assets/Sprites/poker-icons-bg.png" id="4_y1nnq"]
@@ -357,8 +357,8 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tdfnd"]
 _data = {
-"Close": SubResource("Animation_1uph0"),
-"Open": SubResource("Animation_tinju")
+&"Close": SubResource("Animation_1uph0"),
+&"Open": SubResource("Animation_tinju")
 }
 
 [sub_resource type="Animation" id="Animation_555ds"]
@@ -467,8 +467,8 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ejkk7"]
 _data = {
-"Close": SubResource("Animation_555ds"),
-"Open": SubResource("Animation_3d5uf")
+&"Close": SubResource("Animation_555ds"),
+&"Open": SubResource("Animation_3d5uf")
 }
 
 [node name="RegisterDialog" type="Control"]

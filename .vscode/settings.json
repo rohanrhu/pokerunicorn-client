@@ -1,4 +1,5 @@
 {
     "godot_tools.gdscript_lsp_server_port": 6005,
-    "godot_tools.editor_path": "/Applications/Godot_mono.app/Contents/MacOS/Godot",
+    "godot_tools.editor_path": "/Applications/Godot.app/Contents/MacOS/Godot",
+    "godotTools.editorPath.godot4": "/Applications/Godot.app/Contents/MacOS/Godot",
 }

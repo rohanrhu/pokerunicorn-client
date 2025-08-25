@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://belenk3xfm5ix"]
 
-[ext_resource type="Script" path="res://Scenes/Board/Board.gd" id="1_ijc65"]
+[ext_resource type="Script" uid="uid://inwpql785ymb" path="res://Scenes/Board/Board.gd" id="1_ijc65"]
 [ext_resource type="PackedScene" uid="uid://dbm6v3cx1hsor" path="res://Scenes/Card/Card.tscn" id="1_rgbm1"]
 
 [sub_resource type="Animation" id="Animation_2pqer"]
@@ -503,10 +503,10 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_myehn"]
 _data = {
-"Flop": SubResource("Animation_2pqer"),
-"RESET": SubResource("Animation_truc1"),
-"River": SubResource("Animation_37lih"),
-"Turn": SubResource("Animation_2kwps")
+&"Flop": SubResource("Animation_2pqer"),
+&"RESET": SubResource("Animation_truc1"),
+&"River": SubResource("Animation_37lih"),
+&"Turn": SubResource("Animation_2kwps")
 }
 
 [node name="Board" type="Control"]

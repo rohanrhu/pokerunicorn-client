@@ -11,8 +11,6 @@ class_name TableListItem
 @export var style_entered: StyleBox
 @export var style_hover: StyleBox
 
-@onready var cPoker: PackedScene = load("res://Scenes/Poker/Poker.tscn")
-
 @onready var nNameLabel: Label = %NameLabel
 @onready var nSmallBlindLabel: Label = %SmallBlindLabel
 @onready var nBigBlindLabel: Label = %BigBlindLabel
@@ -101,7 +99,6 @@ func _on_EnterBtn_mouse_entered() -> void:
 	tween.tween_property(nEnterBtn, "scale", Vector2(0.95, 0.95), 0.05)
 	tween.tween_interval(0.05)
 	tween.tween_property(nEnterBtn, "scale", Vector2(1, 1), 0.05)
-
 
 func _on_EnterBtn_mouse_exited() -> void:
 	if is_entered:

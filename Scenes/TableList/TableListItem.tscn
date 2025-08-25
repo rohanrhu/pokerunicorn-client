@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bp4do3xot4u25"]
 
-[ext_resource type="Script" path="res://Scenes/TableList/TableListItem.gd" id="1_a10eb"]
+[ext_resource type="Script" uid="uid://b50280myh4otc" path="res://Scenes/TableList/TableListItem.gd" id="1_a10eb"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ymaws"]
 

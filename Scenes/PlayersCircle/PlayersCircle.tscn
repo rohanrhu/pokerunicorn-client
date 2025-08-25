@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cj1ktgyxnsxby"]
 
-[ext_resource type="Script" path="res://Scenes/PlayersCircle/PlayersCircle.gd" id="1_n1co6"]
+[ext_resource type="Script" uid="uid://r24t03vrgsr1" path="res://Scenes/PlayersCircle/PlayersCircle.gd" id="1_n1co6"]
 [ext_resource type="Texture2D" uid="uid://du8rjn311srgj" path="res://Assets/Sprites/desk.png" id="2_jgtb7"]
 [ext_resource type="PackedScene" uid="uid://dfqfnpbjl24gf" path="res://Scenes/PokerPlayer/PokerPlayer.tscn" id="3_ag6c0"]
 [ext_resource type="PackedScene" uid="uid://cad1et6rl45p2" path="res://Scenes/PlayersCircle/TakeSeatButton.tscn" id="4_ldc2w"]

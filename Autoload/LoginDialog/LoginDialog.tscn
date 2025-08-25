@@ -1,8 +1,8 @@
 [gd_scene load_steps=33 format=3 uid="uid://liuc3q8c1vo8"]
 
-[ext_resource type="Script" path="res://Autoload/LoginDialog/LoginDialog.gd" id="1_bx025"]
-[ext_resource type="Shader" path="res://Shaders/Skew.gdshader" id="2_t2g3d"]
-[ext_resource type="Shader" path="res://Shaders/Teleport.gdshader" id="3_3cjd3"]
+[ext_resource type="Script" uid="uid://d05oe117u7ijr" path="res://Autoload/LoginDialog/LoginDialog.gd" id="1_bx025"]
+[ext_resource type="Shader" uid="uid://cvhagdx16boxb" path="res://Shaders/Skew.gdshader" id="2_t2g3d"]
+[ext_resource type="Shader" uid="uid://ccicldogpvknu" path="res://Shaders/Teleport.gdshader" id="3_3cjd3"]
 [ext_resource type="Material" uid="uid://b4wv5lw4jqvwj" path="res://Materials/ScrollingBacground.tres" id="4_kppfv"]
 [ext_resource type="Texture2D" uid="uid://b2q06rg3abrxr" path="res://Assets/Sprites/poker-icons-bg.png" id="4_mposs"]
 [ext_resource type="Texture2D" uid="uid://difpu4nof0f6d" path="res://Assets/Sprites/Icons/email.png" id="4_mtq0s"]
@@ -416,10 +416,10 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b82ex"]
 _data = {
-"Close": SubResource("Animation_f3yv1"),
-"Open": SubResource("Animation_ns50l"),
-"StageDown": SubResource("Animation_lsfgi"),
-"StageUp": SubResource("Animation_unqqn")
+&"Close": SubResource("Animation_f3yv1"),
+&"Open": SubResource("Animation_ns50l"),
+&"StageDown": SubResource("Animation_lsfgi"),
+&"StageUp": SubResource("Animation_unqqn")
 }
 
 [node name="LoginDialog" type="Control"]
@@ -726,7 +726,7 @@ offset_bottom = 40.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_b82ex")
+&"": SubResource("AnimationLibrary_b82ex")
 }
 
 [connection signal="pressed" from="CanvasLayer/Layer/SubViewportContainer/SubViewport/Box/BgBox/MarginContainer/VBoxContainer/Title/CloseButton" to="." method="_on_CloseButton_pressed"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://d05dfnc75im0u"]
 
-[ext_resource type="Script" path="res://Scenes/WinTitle/WinTitle.gd" id="1_qrm0h"]
+[ext_resource type="Script" uid="uid://d0gcavacqcjrj" path="res://Scenes/WinTitle/WinTitle.gd" id="1_qrm0h"]
 [ext_resource type="Texture2D" uid="uid://d20h444wxko53" path="res://Assets/Sprites/Icons/close.png" id="2_wcw5r"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e6y83"]

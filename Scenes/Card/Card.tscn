@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dbm6v3cx1hsor"]
 
-[ext_resource type="Script" path="res://Scenes/Card/Card.gd" id="1_k6p5f"]
+[ext_resource type="Script" uid="uid://btbo8f0anhbnd" path="res://Scenes/Card/Card.gd" id="1_k6p5f"]
 [ext_resource type="Texture2D" uid="uid://xxchdbbvvnbn" path="res://Assets/Sprites/Kinds/heart.png" id="2_wc87c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sgxqd"]

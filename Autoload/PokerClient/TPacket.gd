@@ -14,6 +14,8 @@ enum OPCODE {
 	LOGIN_RES,
 	SIGNUP,
 	SIGNUP_RES,
+	AUTH_SESSION,
+	AUTH_SESSION_RES,
 	GET_ACCOUNT,
 	ACCOUNT,
 	ENTER,
@@ -115,6 +117,7 @@ class TLoginRes:
 	var is_ok: bool
 	var is_logined: bool
 	var account: TAccount
+	var auth_token: String
 
 class TSignupRes:
 	enum STATUS {
@@ -127,6 +130,20 @@ class TSignupRes:
 	var is_logined: bool
 	var status: int
 	var account: TAccount
+	var auth_token: String
+
+class TAuthSessionRes:
+	enum STATUS {
+		OK,
+		ERROR,
+		ALREADY_EXISTS
+	}
+	
+	var is_ok: bool
+	var is_logined: bool
+	var status: int
+	var account: TAccount
+	var auth_token: String
 
 class TEnterRes:
 	var table_id: int

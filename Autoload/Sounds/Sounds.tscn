@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://d3y3qxwyyewl2"]
 
-[ext_resource type="Script" path="res://Autoload/Sounds/Sounds.gd" id="1_38ymu"]
+[ext_resource type="Script" uid="uid://djmuvx3u6dle3" path="res://Autoload/Sounds/Sounds.gd" id="1_38ymu"]
 [ext_resource type="AudioStream" uid="uid://de0fq80rmnl7n" path="res://Assets/Sounds/pop-2.wav" id="2_pdc4e"]
 [ext_resource type="AudioStream" uid="uid://beyk63w0p80qv" path="res://Assets/Sounds/trouble-bop.wav" id="3_aq0ys"]
 [ext_resource type="AudioStream" uid="uid://cy7mg5p07tk78" path="res://Assets/Sounds/fail.wav" id="4_i3vbn"]

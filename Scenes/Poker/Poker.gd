@@ -479,4 +479,4 @@ func _on_WinTitle_quitting() -> void:
 
 func _on_leave_res(leave_res: TPacket.TLeaveRes) -> void:
 	if table_id == leave_res.table_id:
-		emit_signal("left", table_id)
+		left.emit(table_id)

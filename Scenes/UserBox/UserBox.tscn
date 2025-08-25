@@ -1,11 +1,11 @@
 [gd_scene load_steps=25 format=3 uid="uid://drkcnbi4u8o5j"]
 
-[ext_resource type="Script" path="res://Scenes/UserBox/UserBox.gd" id="2_1a7my"]
+[ext_resource type="Script" uid="uid://ceb25ankjxbj5" path="res://Scenes/UserBox/UserBox.gd" id="2_1a7my"]
 [ext_resource type="Texture2D" uid="uid://b2q06rg3abrxr" path="res://Assets/Sprites/poker-icons-bg.png" id="3_d2qik"]
-[ext_resource type="Shader" path="res://Nodes/BorderRadius/BorderRadius.gdshader" id="3_f8xyj"]
+[ext_resource type="Shader" uid="uid://dct2y5dqv5rx0" path="res://Nodes/BorderRadius/BorderRadius.gdshader" id="3_f8xyj"]
 [ext_resource type="Texture2D" uid="uid://ddp5tr764ecny" path="res://Assets/Sprites/no-avatar.png" id="4_bs46w"]
 [ext_resource type="Texture2D" uid="uid://bbdhxlkmfbh18" path="res://Assets/Sprites/Icons/right.png" id="4_flna1"]
-[ext_resource type="Script" path="res://Nodes/BorderRadius/BorderRadius.gd" id="5_ugr80"]
+[ext_resource type="Script" uid="uid://jmy225q8v3er" path="res://Nodes/BorderRadius/BorderRadius.gd" id="5_ugr80"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cwhr2"]
 
@@ -125,8 +125,8 @@ shader_parameter/radius_top_left = 10.0
 shader_parameter/radius_top_right = 10.0
 shader_parameter/radius_bottom_left = 10.0
 shader_parameter/radius_bottom_right = 10.0
-shader_parameter/canvas_width = null
-shader_parameter/canvas_height = null
+shader_parameter/canvas_width = 0.0
+shader_parameter/canvas_height = 0.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iukjj"]
 content_margin_left = 10.0

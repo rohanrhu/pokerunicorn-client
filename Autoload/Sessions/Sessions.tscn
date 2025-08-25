@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cutvtj7ur47tv"]
 
-[ext_resource type="Script" path="res://Autoload/Sessions/Sessions.gd" id="1_m0sds"]
+[ext_resource type="Script" uid="uid://74gn33ijinaa" path="res://Autoload/Sessions/Sessions.gd" id="1_m0sds"]
 
 [node name="ASessions" type="Control"]
 layout_mode = 3

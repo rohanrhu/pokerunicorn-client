@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://crcai036iihk6"]
 
-[ext_resource type="Script" path="res://Scenes/ChipStack/ChipsStack.gd" id="1_jueer"]
+[ext_resource type="Script" uid="uid://yr83u33e2o62" path="res://Scenes/ChipStack/ChipsStack.gd" id="1_jueer"]
 [ext_resource type="Texture2D" uid="uid://blr8bmuxqra6q" path="res://Assets/Sprites/Chips/chip-1.png" id="2_h48t3"]
 
 [node name="ChipsStack" type="Control"]
