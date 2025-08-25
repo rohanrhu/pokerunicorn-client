@@ -5,8 +5,8 @@
 extends Node
 class_name AppInfo
 
-static var VERSION = [0, 10, 0, "alpha"]
-static var VERSION_STR = "v0.10.0-alpha"
+static var VERSION = [0, 11, 0, "git"]
+static var VERSION_STR = "v0.11.0-git"
 
 func _ready() -> void:
 	pass
